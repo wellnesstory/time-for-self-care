@@ -384,30 +384,27 @@
         // UI 渲染邏輯
         // -------------------------
         window.renderProducts = function() {
-            // Render Chapter 1 (更新為包含顏色選擇)
-ch1Container.innerHTML = productsCh1.map(p => `
-    <div class="bg-white rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 overflow-hidden flex flex-col group border border-gray-100">
-        <div class="h-80 overflow-hidden relative bg-gray-50 flex items-center justify-center p-4">
-            <img src="${p.image}" alt="${p.name}" class="w-full h-full object-contain transition-transform duration-700 group-hover:scale-105 drop-shadow-md">
-        </div>
-        <div class="p-6 flex flex-col flex-1">
-            <h3 class="text-2xl font-bold mb-3 font-serif text-gray-800 tracking-wide">${p.name}</h3>
-            <p class="text-gray-600 text-sm mb-6 flex-1 leading-relaxed">${p.description}</p>
-            <div class="mt-auto space-y-3 pointer-events-auto">
-                <select id="option-${p.id}" class="w-full border border-gray-200 rounded-lg p-3 text-sm focus:ring-2 focus:ring-[#8fa49b] outline-none bg-gray-50 cursor-pointer">
-                    ${p.options.map((opt, i) => `<option value="${i}">容量: ${opt.name} - HK$${opt.price}</option>`).join('')}
-                </select>
-                <!-- 這裡加入顏色選擇，如果 Chapter 1 不需要顏色，可以設為預設值 -->
-                <select id="color-${p.id}" class="w-full border border-gray-200 rounded-lg p-2.5 text-sm focus:ring-2 focus:ring-[#8fa49b] outline-none bg-gray-50 text-center cursor-pointer">
-                    <option value="標準">標準版</option>
-                </select>
-                <button onclick="addToCart('${p.id}', 'ch1')" class="w-full bg-[#f4f7f6] text-gray-700 py-3 rounded-full hover:bg-[#8fa49b] hover:text-white transition-colors font-semibold border border-transparent hover:border-[#8fa49b]">
-                    加入購物車
-                </button>
-            </div>
-        </div>
-    </div>
-`).join('');
+            // Render Chapter 1
+            const ch1Container = document.getElementById('ch1-container');
+            ch1Container.innerHTML = productsCh1.map(p => `
+                <div class="bg-white rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 overflow-hidden flex flex-col group border border-gray-100">
+                    <div class="h-80 overflow-hidden relative bg-gray-50 flex items-center justify-center p-4">
+                        <img src="${p.image}" alt="${p.name}" class="w-full h-full object-contain transition-transform duration-700 group-hover:scale-105 drop-shadow-md pointer-events-none">
+                    </div>
+                    <div class="p-6 flex flex-col flex-1">
+                        <h3 class="text-2xl font-bold mb-3 font-serif text-gray-800 tracking-wide">${p.name}</h3>
+                        <p class="text-gray-600 text-sm mb-6 flex-1 leading-relaxed">${p.description}</p>
+                        <div class="mt-auto space-y-3 pointer-events-auto">
+                            <select id="option-${p.id}" class="w-full border border-gray-200 rounded-lg p-3 text-sm focus:ring-2 focus:ring-[#8fa49b] focus:border-transparent outline-none bg-gray-50 cursor-pointer">
+                                ${p.options.map((opt, i) => `<option value="${i}">容量: ${opt.name} - HK$${opt.price}</option>`).join('')}
+                            </select>
+                            <button onclick="addToCart('${p.id}', 'ch2')" class="w-full bg-[#f4f7f6] text-gray-700 py-3 rounded-full hover:bg-[#8fa49b] hover:text-white transition-colors font-semibold border border-transparent hover:border-[#8fa49b]">
+                                加入購物車
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            `).join('');
 
             // Render Chapter 2
             const ch2Container = document.getElementById('ch2-container');
