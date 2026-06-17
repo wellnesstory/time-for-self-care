@@ -142,12 +142,14 @@
     </section>
 
     <!-- AI 占卜 -->
-    <section class="py-16 bg-[#f4f7f6]">
+    <section class="pt-16 pb-32 bg-[#f4f7f6]">
         <div class="max-w-6xl mx-auto px-6 text-center">
             <h2 class="text-2xl font-serif-tc mb-6">🔮 香氣故事占卜</h2>
             <p class="text-gray-600 mb-6">寫下一句今天的心情，或是最近遇到的小故事，讓調香師為您推薦專屬的療癒香氣。</p>
-            <input type="text" id="oracle-input" placeholder="例如：今天覺得好疲憊，想看海..." class="w-full p-4 rounded-full border mb-4">
-            <button onclick="askScentOracle()" class="bg-[#8fa49b] text-white px-8 py-3 rounded-full mb-10 hover:bg-[#788880] transition">開始感應</button>
+            <input type="text" id="oracle-input" placeholder="例如：今天覺得好疲憊，想看海..." class="w-full p-4 rounded-full border mb-6">
+            
+            <button onclick="askScentOracle()" class="bg-[#8fa49b] text-white px-8 py-3 rounded-full hover:bg-[#788880] transition-colors duration-300">開始感應</button>
+            
             <div id="oracle-result" class="mt-8 hidden p-6 bg-white rounded-xl shadow-sm"></div>
         </div>
     </section>
