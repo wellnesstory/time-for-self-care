@@ -4,11 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Wellnesstory | 原創調配香水與手作</title>
-    <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@300;400;500;600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
-    <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         body { font-family: 'Inter', sans-serif; }
@@ -32,43 +29,35 @@
 </head>
 <body class="bg-[#faf9f6] text-gray-800 antialiased overflow-x-hidden">
 
-<!-- 頂部公告欄 (修改為垂直兩行) -->
 <div class="fixed top-0 w-full h-auto min-h-[40px] py-1 bg-[#8fa49b] text-white flex flex-col items-center justify-center text-xs md:text-sm z-[110] px-4 shadow-sm">
-    <!-- 第一行：免運資訊 -->
     <span class="text-center w-full">
         購物滿 <span class="font-bold">HK$800</span> 即享免運費（只限香港地區，離島及偏遠地區除外）
     </span>
 </div>
 
-<!-- 導覽列 Navbar -->
 <nav class="fixed w-full z-[100] bg-white/95 backdrop-blur-md shadow-sm transition-all duration-300 top-10" id="navbar">
     <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex justify-between items-center h-20">
 
-            <!-- 新增：手機版漢堡按鈕 (只有小螢幕顯示) -->
             <button class="md:hidden text-2xl text-gray-700" onclick="toggleMobileMenu()">
                 <i class="fas fa-bars"></i>
             </button>
 
-            <!-- Logo -->
             <div class="cursor-pointer" onclick="window.scrollTo(0,0)">
                 <img src="https://drive.google.com/thumbnail?id=1SncEjo24boX27bSdx80IUjt_El0j5Xf4&sz=w800" alt="Wellnesstory Logo" class="h-14 w-auto object-contain">
             </div>
 
-            <!-- Desktop Menu (保持隱藏) -->
             <div class="hidden md:flex space-x-8 items-center mr-8 relative z-10 pointer-events-auto">
-                <!-- (你的連結保持不變) -->
                 <a href="#about" class="text-gray-600 hover:text-[#8fa49b] transition-colors font-medium">關於我們</a>
                 <a href="#chapter1" class="text-gray-600 hover:text-[#8fa49b] transition-colors font-medium">情緒香水</a>
                 <a href="#chapter2" class="text-gray-600 hover:text-[#8fa49b] transition-colors font-medium">香氣扭扭花</a>
-                <a href="#chapter3" class="text-gray-600 hover:text-[#8fa49b] transition-colors font-medium">你的專屬氣味日記</a>
+                <a href="#chapter3" class="text-[#8fa49b] hover:text-[#7b8f87] transition-colors font-semibold">你的專屬氣味日記</a>
                 <a href="#customer" class="text-gray-600 hover:text-[#8fa49b] transition-colors font-medium">批量客製禮品</a>
                 <a href="#FAQ" class="text-gray-600 hover:text-[#8fa49b] transition-colors font-medium">常見問題</a>
             </div>
 
-            <!-- 購物車按鈕 -->
             <div class="flex items-center gap-4">
-                <button onclick="toggleCart()" class="relative text-gray-700 hover:text-[#8fa49b] text-xl">
+                <button onclick="toggleCart()" class="relative text-gray-700 hover:text-[#8fa49b] text-xl transition-colors">
                     <i class="fas fa-shopping-bag"></i>
                     <span id="cart-count" class="absolute -top-2 -right-2 bg-[#8fa49b] text-white text-[10px] rounded-full h-4 w-4 flex items-center justify-center">0</span>
                 </button>
@@ -77,22 +66,19 @@
     </div>
 </nav>
 
-    <!-- Mobile Menu -->
     <div id="mobile-menu" class="hidden md:hidden fixed inset-0 z-[105] bg-white pt-24 px-6">
         <button class="absolute top-8 right-6 text-2xl" onclick="toggleMobileMenu()"><i class="fas fa-times"></i></button>
         <div class="flex flex-col space-y-6 text-xl font-medium">
             <a href="#about" onclick="toggleMobileMenu()">關於我們</a>
             <a href="#chapter1" onclick="toggleMobileMenu()">情緒香水</a>
             <a href="#chapter2" onclick="toggleMobileMenu()">香氣扭扭花</a>
-            <a href="#chapter3" onclick="toggleMobileMenu()">你的專屬氣味日記</a>
+            <a href="#chapter3" onclick="toggleMobileMenu()" class="text-[#8fa49b] font-bold">你的專屬氣味日記</a>
             <a href="#customer" onclick="toggleMobileMenu()">批量客製禮品</a>
             <a href="#FAQ" onclick="toggleMobileMenu()">常見問題</a>
         </div>
     </div>
 
-    <!-- 首頁橫幅 Hero Section -->
     <section class="relative h-screen flex items-center justify-center overflow-hidden">
-        <!-- 背景圖片 -->
         <div class="absolute inset-0 z-0">
             <img src="https://drive.google.com/thumbnail?id=1lZn-t7S99FjFiKh4dbZBlxa4X2uC0MrG&sz=w1920" alt="Wellnesstory 背景" class="w-full h-full object-cover opacity-80">
             <div class="absolute inset-0 hero-overlay"></div>
@@ -111,22 +97,21 @@
         </div>
     </section>
     
-<header class="bg-[#8a9a92] py-32 px-4 text-center shadow-inner">
+    <header class="bg-[#8fa49b] py-32 px-4 text-center shadow-inner">
         <div class="max-w-4xl mx-auto">
-            <div class="inline-block bg-white text-[#8a9a92] text-xs font-bold px-3 py-1 rounded-full tracking-widest mb-4 shadow-sm">NEW! 全新推出 ✨</div>
+            <div class="inline-block bg-white text-[#8fa49b] text-xs font-bold px-3 py-1 rounded-full tracking-widest mb-4 shadow-sm">NEW! 全新推出 ✨</div>
             <p class="text-[#faf9f6] text-base md:text-lg tracking-[0.2em] mb-4 font-light opacity-90">
                 — Chapter 3 Yours, 你的專屬氣味日記 —
             </p>
             <h1 class="text-[#faf9f6] text-3xl md:text-4xl lg:text-5xl font-serif-tc mb-12 tracking-widest leading-tight drop-shadow-sm">
                 客製化香水服務
             </h1>
-           <a href="#chapter3" class="inline-block bg-white text-[#8fa49b] px-8 py-3.5 rounded-full tracking-wider hover:bg-[#7b8f87] transition-all shadow-md hover:shadow-lg text-lg pointer-events-auto relative z-20">
+           <a href="#chapter3" class="inline-block bg-white text-[#8fa49b] px-8 py-3.5 rounded-full tracking-wider hover:bg-gray-50 transition-all shadow-md hover:shadow-lg text-lg pointer-events-auto relative z-20 font-medium">
                 了解更多
             </a>
         </div>
     </header>
     
-    <!-- 關於我們 About Us -->
     <section id="about" class="py-24 bg-white relative z-10 pt-32 -mt-16">
         <div class="max-w-4xl mx-auto px-4 text-center">
             <h2 class="text-3xl font-serif-tc text-gray-800 mb-4 tracking-widest">關於我們 ABOUT US</h2>
@@ -141,20 +126,18 @@
         </div>
     </section>
 
-    <!-- AI 占卜 -->
     <section class="pt-16 pb-32 bg-[#f4f7f6]">
         <div class="max-w-6xl mx-auto px-6 text-center">
             <h2 class="text-2xl font-serif-tc mb-6">🔮 香氣故事占卜</h2>
             <p class="text-gray-600 mb-6">寫下一句今天的心情，或是最近遇到的小故事，讓調香師為您推薦專屬的療癒香氣。</p>
-            <input type="text" id="oracle-input" placeholder="例如：今天覺得好疲憊，想看海..." class="w-full p-4 rounded-full border mb-6">
+            <input type="text" id="oracle-input" placeholder="例如：今天覺得好疲憊，想看海..." class="w-full p-4 rounded-full border mb-6 focus:ring-2 focus:ring-[#8fa49b] outline-none transition-all">
             
-            <button onclick="askScentOracle()" class="bg-[#8fa49b] text-white px-8 py-3 rounded-full hover:bg-[#788880] transition-colors duration-300">開始感應</button>
+            <button onclick="askScentOracle()" class="bg-[#8fa49b] text-white px-8 py-3 rounded-full hover:bg-[#7b8f87] transition-colors duration-300 shadow-sm font-medium">開始感應</button>
             
-            <div id="oracle-result" class="mt-8 hidden p-6 bg-white rounded-xl shadow-sm"></div>
+            <div id="oracle-result" class="mt-8 hidden p-6 bg-white rounded-xl shadow-sm border border-gray-100"></div>
         </div>
     </section>
 
-    <!-- Chapter 1: 情緒香水 -->
     <section id="chapter1" class="py-24 bg-[#faf9f6] pt-32 -mt-16">
         <div class="max-w-6xl mx-auto px-4">
             <div class="text-center mb-16">
@@ -168,12 +151,10 @@
             </div>
             
             <div id="ch1-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
-                <!-- 產品卡片由 JavaScript 動態生成 -->
-            </div>
+                </div>
         </div>
     </section>
 
-    <!-- Chapter 2: 香氣扭扭花 -->
     <section id="chapter2" class="py-24 bg-white pt-32 -mt-16">
         <div class="max-w-6xl mx-auto px-4">
             <div class="text-center mb-16">
@@ -189,36 +170,34 @@
             </div>
             
             <div id="ch2-container" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10">
-                <!-- 產品卡片由 JavaScript 動態生成 -->
-            </div>
+                </div>
         </div>
     </section>
 
-    <!-- Chapter 3 (已移至 Chapter 1 之後) -->
-    <section id="chapter3" class="py-24 bg-[#eef1f0]">
+    <section id="chapter3" class="py-24 bg-[#eef1f0] pt-32 -mt-16">
         <div class="max-w-4xl mx-auto px-6 text-center">
-            <div class="inline-block bg-white text-[#8a9a92] text-xs font-bold px-3 py-1 rounded-full tracking-widest mb-4 shadow-sm">NEW ✨</div>
-            
-            </h2>
+            <div class="inline-block bg-white text-[#8fa49b] text-xs font-bold px-3 py-1 rounded-full tracking-widest mb-6 shadow-sm border border-[#e8f0ec]">NEW ✨</div>
             <span class="text-[#8fa49b] font-semibold tracking-widest text-sm mb-2 block">Chapter 3</span>
-                <h2 class="text-3xl md:text-4xl font-serif-tc text-gray-800 mb-6">Yours, 你的專屬香氣日記</h2>
-            <p class="text-gray-600 mb-10 leading-relaxed">
+            <h2 class="text-3xl md:text-4xl font-serif-tc text-gray-800 mb-6">Yours, 你的專屬香氣日記</h2>
+            
+            <p class="text-gray-600 mb-10 leading-relaxed text-lg">
                 每個人都有屬於自己的獨特故事。<br>
                 我們將會根據您想要訴說的故事，為您特調出世界上獨一無二的專屬香水。
             </p>
+            
             <div class="flex flex-wrap justify-center gap-4 mb-10">
-                <span class="bg-white px-6 py-2 rounded-lg text-gray-700 shadow-sm">10ml / HK$ 368</span>
-                <span class="bg-white px-6 py-2 rounded-lg text-gray-700 shadow-sm">30ml / HK$ 528</span>
-                <span class="bg-white px-6 py-2 rounded-lg text-gray-700 shadow-sm">50ml / HK$ 658</span>
+                <span class="bg-white px-6 py-2.5 rounded-lg text-gray-700 shadow-sm border border-gray-100 font-medium">10ml / HK$ 368</span>
+                <span class="bg-white px-6 py-2.5 rounded-lg text-gray-700 shadow-sm border border-gray-100 font-medium">30ml / HK$ 528</span>
+                <span class="bg-white px-6 py-2.5 rounded-lg text-gray-700 shadow-sm border border-gray-100 font-medium">50ml / HK$ 658</span>
             </div>
-            <a href="https://forms.gle/tXxQVcLHfaPMUEm67" target="_blank" class="inline-block bg-[#8fa49b] text-white px-8 py-3 rounded-full hover:bg-[#3d4642] transition-colors duration-300 text-lg font-medium">
+            
+            <a href="https://forms.gle/tXxQVcLHfaPMUEm67" target="_blank" class="inline-block bg-[#8fa49b] text-white px-10 py-3.5 rounded-full hover:bg-[#7b8f87] transition-all duration-300 text-lg font-semibold shadow-md hover:shadow-lg">
                 填寫訂購表格
             </a>
-            <p class="text-sm text-gray-700 mt-4">填妥表格後，我們將會透過 WhatsApp 與您聯絡</p>
+            <p class="text-sm text-gray-500 mt-5 font-light tracking-wide">填妥表格後，我們將會透過 WhatsApp 與您聯絡</p>
         </div>
     </section>
 
-    <!-- 批量客製禮品服務 Banner -->
     <section id="customer" class="py-16 bg-[#8fa49b] text-white pt-24 -mt-8">
         <div class="max-w-4xl mx-auto px-4 text-center">
             <h2 class="text-3xl font-serif-tc mb-4">批量客製禮品</h2>
@@ -229,39 +208,39 @@
         </div>
     </section>
 
-    <section id="FAQ" class="py-24 bg-white">
+    <section id="FAQ" class="py-24 bg-white pt-32 -mt-16">
     <div class="max-w-3xl mx-auto px-6">
         <h2 class="text-3xl font-serif-tc text-center text-gray-800 mb-12">常見問題 FAQ</h2>
         
         <div class="space-y-4">
             <details class="group bg-[#f4f7f6] p-6 rounded-2xl shadow-sm border border-gray-100 cursor-pointer">
-                <summary class="font-bold text-lg list-none flex justify-between items-center">
+                <summary class="font-bold text-lg list-none flex justify-between items-center text-gray-800">
                     Q: 香水的成份是什麼？
-                    <span class="group-open:rotate-180 transition-transform">▼</span>
+                    <span class="group-open:rotate-180 transition-transform text-[#8fa49b]">▼</span>
                 </summary>
                 <p class="mt-4 text-gray-600 leading-relaxed">我們的香水採用高品質香精及酒精，通過 IFRA 國際香料協會認證，不含有害成分，符合安全標準。</p>
             </details>
 
             <details class="group bg-[#f4f7f6] p-6 rounded-2xl shadow-sm border border-gray-100 cursor-pointer">
-                <summary class="font-bold text-lg list-none flex justify-between items-center">
+                <summary class="font-bold text-lg list-none flex justify-between items-center text-gray-800">
                     Q: 持香時間多久？
-                    <span class="group-open:rotate-180 transition-transform">▼</span>
+                    <span class="group-open:rotate-180 transition-transform text-[#8fa49b]">▼</span>
                 </summary>
                 <p class="mt-4 text-gray-600 leading-relaxed">約 6-8 小時，視乎個人體質、環境及應用方式而定。</p>
             </details>
 
             <details class="group bg-[#f4f7f6] p-6 rounded-2xl shadow-sm border border-gray-100 cursor-pointer">
-                <summary class="font-bold text-lg list-none flex justify-between items-center">
+                <summary class="font-bold text-lg list-none flex justify-between items-center text-gray-800">
                     Q: 接受哪些付款方式？
-                    <span class="group-open:rotate-180 transition-transform">▼</span>
+                    <span class="group-open:rotate-180 transition-transform text-[#8fa49b]">▼</span>
                 </summary>
                 <p class="mt-4 text-gray-600 leading-relaxed">我們接受轉數快(FPS)、PayMe、Alipay HK、WeChat Pay。</p>
             </details>
 
             <details class="group bg-[#f4f7f6] p-6 rounded-2xl shadow-sm border border-gray-100 cursor-pointer">
-                <summary class="font-bold text-lg list-none flex justify-between items-center">
+                <summary class="font-bold text-lg list-none flex justify-between items-center text-gray-800">
                     Q: 運費如何計算？
-                    <span class="group-open:rotate-180 transition-transform">▼</span>
+                    <span class="group-open:rotate-180 transition-transform text-[#8fa49b]">▼</span>
                 </summary>
                 <p class="mt-4 text-gray-600 leading-relaxed">購物滿 HK$800：香港地區（離島及偏遠地區除外）免運費；購物不足 HK$800 或 離島及偏遠地區：可選順豐到付（按順豐實際收費）或當面交收(+HK$15)</p>
             </details>
@@ -269,24 +248,22 @@
     </div>
 </section>
 
-    <!-- 頁尾 Footer -->
     <footer class="bg-gray-900 text-gray-400 py-16 text-center">
         <div class="max-w-6xl mx-auto px-4 flex flex-col items-center">
             <img src="https://drive.google.com/thumbnail?id=1SncEjo24boX27bSdx80IUjt_El0j5Xf4&sz=w800" alt="Wellnesstory Logo" class="h-16 w-auto mb-6 opacity-60 hover:opacity-100 transition-opacity" style="filter: brightness(0) invert(1);">
             <p class="font-serif-tc text-gray-300 mb-8 tracking-widest">用香氣紀錄故事，用美感安放身心。</p>
             <div class="flex space-x-6 mb-8 items-center justify-center">
-                <a href="https://wa.me/85264630300" target="_blank" class="text-gray-400 hover:text-white transition-colors transform hover:scale-110"><i class="fab fa-whatsapp text-3xl"></i></a>
-                <a href="https://www.instagram.com/wellnesstory.hk/" target="_blank" class="text-gray-400 hover:text-white transition-colors transform hover:scale-110"><i class="fab fa-instagram text-3xl"></i></a>
-                <a href="https://facebook.com/WellnesstoryHK" target="_blank" class="text-gray-400 hover:text-white transition-colors transform hover:scale-110"><i class="fab fa-facebook text-3xl"></i></a>
+                <a href="https://wa.me/85264630300" target="_blank" class="text-gray-400 hover:text-[#8fa49b] transition-colors transform hover:scale-110"><i class="fab fa-whatsapp text-3xl"></i></a>
+                <a href="https://www.instagram.com/wellnesstory.hk/" target="_blank" class="text-gray-400 hover:text-[#8fa49b] transition-colors transform hover:scale-110"><i class="fab fa-instagram text-3xl"></i></a>
+                <a href="https://facebook.com/WellnesstoryHK" target="_blank" class="text-gray-400 hover:text-[#8fa49b] transition-colors transform hover:scale-110"><i class="fab fa-facebook text-3xl"></i></a>
                 
-                <!-- Threads SVG Icon -->
-                <a href="https://www.threads.com/@wellnesstory.hk" target="_blank" class="text-gray-400 hover:text-white transition-colors transform hover:scale-110">
+                <a href="https://www.threads.com/@wellnesstory.hk" target="_blank" class="text-gray-400 hover:text-[#8fa49b] transition-colors transform hover:scale-110">
                     <svg class="w-7 h-7 fill-current" viewBox="0 0 192 192" xmlns="http://www.w3.org/2000/svg">
                         <path d="M141.537 88.9883C140.71 88.5919 139.87 88.2104 139.019 87.8451C137.537 60.5382 122.616 44.905 97.5619 44.745C97.4484 44.7443 97.3355 44.7443 97.222 44.7443C82.2364 44.7443 69.7731 51.1409 62.102 62.7807L75.881 72.2328C81.6116 63.5383 90.6052 61.6848 97.2286 61.6848C97.3051 61.6848 97.3819 61.6848 97.4576 61.6855C105.707 61.7381 111.932 64.1366 115.961 68.814C118.893 72.2193 120.854 76.925 121.825 82.8638C114.511 81.6207 106.601 81.2385 98.145 81.7233C74.3247 83.0954 59.0111 96.9879 60.0396 116.292C60.5615 126.084 65.4397 134.508 73.775 140.011C80.8224 144.663 89.899 146.938 99.3323 146.423C111.79 145.74 121.563 140.987 128.381 132.296C133.559 125.696 136.834 117.143 138.28 106.366C144.217 109.949 148.617 114.664 151.047 120.332C155.179 129.967 155.42 145.8 142.501 158.708C131.182 170.016 117.576 174.908 97.0135 175.059C74.2042 174.89 56.9538 167.575 45.7381 153.317C35.2355 139.966 29.8077 120.682 29.6052 96C29.8077 71.3178 35.2355 52.0336 45.7381 38.6827C56.9538 24.4249 74.2039 17.11 97.0132 16.9405C119.988 17.1113 137.539 24.4614 149.184 38.788C154.894 45.8136 159.199 54.6488 162.037 64.9503L178.184 60.6422C174.744 47.9622 169.331 37.0357 161.965 27.974C147.036 9.60668 125.202 0.195148 97.0695 0H96.9569C68.8816 0.194473 47.2921 9.6418 32.7883 28.0793C19.8819 44.4864 13.2244 67.3157 13.0007 95.9325L13 96L13.0007 96.0675C13.2244 124.684 19.8819 147.514 32.7883 163.921C47.2921 182.358 68.8816 191.806 96.9569 192H97.0695C122.03 191.827 139.624 185.292 154.118 170.811C173.081 151.866 172.51 128.119 166.26 113.541C161.776 103.087 153.227 94.5962 141.537 88.9883ZM98.4405 129.507C88.0005 130.095 77.1544 125.409 76.6196 115.372C76.2232 107.93 81.9158 99.626 99.0812 98.0476C101.049 97.8662 102.994 97.7376 104.915 97.6518C105.951 104.97 106.401 113.805 102.001 121.758C99.642 126.02 96.166 128.847 91.246 129.507Z"></path>
                     </svg>
                 </a>
                 
-                <a href="mailto:wellnesstory.scent@gmail.com" class="text-gray-400 hover:text-white transition-colors transform hover:scale-110"><i class="far fa-envelope text-3xl"></i></a>
+                <a href="mailto:wellnesstory.scent@gmail.com" class="text-gray-400 hover:text-[#8fa49b] transition-colors transform hover:scale-110"><i class="far fa-envelope text-3xl"></i></a>
             </div>
             <div class="text-sm space-y-2 text-gray-500">
                 <p class="hover:text-gray-300 transition-colors">WhatsApp: +852 64630300</p>
@@ -299,13 +276,10 @@
         </div>
     </footer>
 
-    <!-- 購物車遮罩 -->
     <div id="cart-overlay" class="fixed inset-0 bg-black/50 z-[120] hidden transition-opacity backdrop-blur-sm" onclick="toggleCart()"></div>
     
-    <!-- 購物車側邊欄 (修改排版，確保不被遮擋) -->
     <div id="cart-sidebar" class="fixed top-0 right-0 h-full w-full sm:w-[400px] bg-white shadow-2xl z-[130] flex flex-col transform translate-x-full transition-transform duration-300">
         
-        <!-- 購物車頂部 (固定高度) -->
         <div class="p-5 border-b flex justify-between items-center bg-gray-50 h-[72px] shrink-0">
             <h2 class="text-xl font-serif-tc font-bold text-gray-800">🛍️ 你的購物車</h2>
             <button onclick="toggleCart()" class="text-gray-400 hover:text-gray-800 transition-colors p-2 rounded-full hover:bg-gray-200 cursor-pointer flex items-center justify-center pointer-events-auto">
@@ -313,20 +287,15 @@
             </button>
         </div>
         
-        <!-- 購物車內容區 (可滾動，隱藏滾動條但保持功能) -->
         <div id="cart-items" class="flex-1 overflow-y-auto no-scrollbar p-5 space-y-4 bg-white relative">
             <div class="text-center text-gray-500 mt-10">購物車是空的喔！</div>
         </div>
         
-        <!-- 購物車底部結帳區 (固定在最底) -->
         <div class="p-5 border-t bg-white shadow-[0_-10px_15px_-3px_rgba(0,0,0,0.05)] shrink-0">
-            
-            <!-- 優惠與運費提示 -->
             <div class="bg-[#f4f7f6] rounded-xl p-3 mb-4 text-xs text-gray-600 space-y-1.5 border border-[#e8f0ec]">
                 <p class="flex items-start gap-1.5"><i class="fas fa-truck text-[#8fa49b] mt-0.5"></i> <span>購物滿 <b>HK$800 免運費</b> </span></p>
             </div>
 
-            <!-- 總計金額 -->
             <div class="flex justify-between items-end mb-3">
                 <span class="font-semibold text-gray-600 mb-1">總計:</span>
                 <span class="font-bold text-3xl text-[#8fa49b]">HK$ <span id="cart-total">0</span></span>
@@ -338,7 +307,6 @@
         </div>
     </div>
 
-    <!-- 產品資料與互動邏輯 -->
     <script type="importmap">
         {
           "imports": {
@@ -357,7 +325,7 @@
         const productsCh1 = [
             {
                 id: 'p1', name: 'Unique',
-                description: '粉紅胡椒與伯爵茶交織出獨特的初印象，揉合金銀花與白麝香的溫柔，最後以雪松與琥珀留下深刻的木質印記，獻給獨一無二的你！',
+                description: '粉紅胡椒與伯爵茶交織出獨特的初印象，揉合金銀花與白麝香的溫柔，最後以雪松與琥珀留下深刻的木質印記，獻給獨一無二的情侶！',
                 image: 'https://drive.google.com/thumbnail?id=1XmzEVz_Deq86PL3l24dZ3It4BhJUNW-I&sz=w800',
                 options: [{name: '10ml', price: 198}, {name: '30ml', price: 338}, {name: '50ml', price: 438}]
             },
@@ -417,7 +385,7 @@
                             <select id="option-${p.id}" class="w-full border border-gray-200 rounded-lg p-3 text-sm focus:ring-2 focus:ring-[#8fa49b] focus:border-transparent outline-none bg-gray-50 cursor-pointer">
                                 ${p.options.map((opt, i) => `<option value="${i}">容量: ${opt.name} - HK$${opt.price}</option>`).join('')}
                             </select>
-                            <button onclick="addToCart('${p.id}', 'ch2')" class="w-full bg-[#f4f7f6] text-gray-700 py-3 rounded-full hover:bg-[#8fa49b] hover:text-white transition-colors font-semibold border border-transparent hover:border-[#8fa49b]">
+                            <button onclick="addToCart('${p.id}', 'ch1')" class="w-full bg-[#f4f7f6] text-gray-700 py-3 rounded-full hover:bg-[#8fa49b] hover:text-white transition-colors font-semibold border border-transparent hover:border-[#8fa49b]">
                                 加入購物車
                             </button>
                         </div>
@@ -454,7 +422,7 @@
             `).join('');
         }
 
-        // 切換扭扭花圖片 (盆栽/鎖匙扣)
+        // 切換扭扭花圖片
         window.changeCh2Image = function(productId) {
             const product = productsCh2.find(p => p.id === productId);
             const selectIndex = document.getElementById(`option-${productId}`).value;
@@ -472,9 +440,7 @@
             }, 150);
         }
 
-        // -------------------------
-        // 購物車邏輯
-        // -------------------------
+        // 購物車側邊欄開關
         window.toggleCart = function() {
             const sidebar = document.getElementById('cart-sidebar');
             const overlay = document.getElementById('cart-overlay');
@@ -483,7 +449,6 @@
             overlay.classList.toggle('hidden');
         }
 
-        // 打開購物車 (加入後自動呼叫)
         window.openCart = function() {
             const sidebar = document.getElementById('cart-sidebar');
             const overlay = document.getElementById('cart-overlay');
@@ -527,7 +492,7 @@
             }
 
             updateCartUI();
-            openCart(); // 自動彈出
+            openCart();
         }
 
         window.updateCartUI = function() {
@@ -604,57 +569,54 @@
             window.open(url, '_blank');
         }
 
-window.askScentOracle = async function() {
-    const input = document.getElementById('oracle-input').value.trim();
-    const res = document.getElementById('oracle-result');
-    
-    if (!input) {
-        alert("請先寫下你的心情喔！");
-        return;
-    }
+        window.askScentOracle = async function() {
+            const input = document.getElementById('oracle-input').value.trim();
+            const res = document.getElementById('oracle-result');
+            
+            if (!input) {
+                alert("請先寫下你的心情喔！");
+                return;
+            }
 
-    res.classList.remove('hidden');
-    res.innerHTML = "✨ 調香師正在感應你的氣味頻率...";
+            res.classList.remove('hidden');
+            res.innerHTML = "✨ 調香師正在感應你的氣味頻率...";
 
-    // 模擬 AI 思考邏輯
-    setTimeout(() => {
-        let recommendation = "";
-        let reason = "";
+            setTimeout(() => {
+                let recommendation = "";
+                let reason = "";
 
-        // 根據輸入內容做簡單的「關鍵字聯想」
-        if (input.includes('累') || input.includes('疲') || input.includes('煩')) {
-            recommendation = "Gloomy";
-            reason = "這款香氣能溫柔地包圍你，讓疲憊的情緒得到安放與療癒。";
-        } else if (input.includes('開心') || input.includes('快樂') || input.includes('玩')) {
-            recommendation = "Joy";
-            reason = "這款香氣充滿活潑的果香，能完美延續你愉悅的心情！";
-        } else if (input.includes('自由') || input.includes('海') || input.includes('風')) {
-            recommendation = "Freedom";
-            reason = "這款香氣帶來清新的海風，適合嚮往自由、渴望空間的你。";
-        } else if (input.includes('焦慮') || input.includes('怕') || input.includes('壓力')) {
-            recommendation = "Anxious";
-            reason = "這款香氣擁有沉穩的木質力量，能撫平你的焦慮，找回內心的平靜。";
-        } else {
-            recommendation = "Unique";
-            reason = "這款香氣獨一無二，就像今天的你一樣，值得被細心呵護。";
+                if (input.includes('累') || input.includes('疲') || input.includes('煩')) {
+                    recommendation = "Gloomy";
+                    reason = "這款香氣能溫柔地包圍你，讓疲憊的情緒得到安放與療癒。";
+                } else if (input.includes('開心') || input.includes('快樂') || input.includes('玩')) {
+                    recommendation = "Joy";
+                    reason = "這款香氣充滿活潑的果香，能完美延續你愉悅的心情！";
+                } else if (input.includes('自由') || input.includes('海') || input.includes('風')) {
+                    recommendation = "Freedom";
+                    reason = "這款香氣帶來清新的海風，適合嚮往自由、渴望空間的你。";
+                } else if (input.includes('焦慮') || input.includes('怕') || input.includes('壓力')) {
+                    recommendation = "Anxious";
+                    reason = "這款香氣擁有沉穩的木質力量，能撫平你的焦慮，找回內心的平靜。";
+                } else {
+                    recommendation = "Unique";
+                    reason = "這款香氣獨一無二，就像今天的你一樣，值得被細心呵護。";
+                }
+
+                res.innerHTML = `
+                    <div class="animate-fade-in">
+                        <p class="text-gray-500 text-sm italic">「${input}」</p>
+                        <p class="mt-4 text-gray-800">感應到了... 推薦你使用 <span class="font-bold text-[#8fa49b] text-xl">${recommendation}</span></p>
+                        <p class="text-gray-600 mt-2">${reason}</p>
+                    </div>
+                `;
+            }, 1500);
         }
 
-        res.innerHTML = `
-            <div class="animate-fade-in">
-                <p class="text-gray-500 text-sm italic">「${input}」</p>
-                <p class="mt-4 text-gray-800">感應到了... 推薦你使用 <span class="font-bold text-[#8fa49b] text-xl">${recommendation}</span></p>
-                <p class="text-gray-600 mt-2">${reason}</p>
-            </div>
-        `;
-    }, 1500);
-}
-// 手機選單開關控制
-window.toggleMobileMenu = function() {
-    const menu = document.getElementById('mobile-menu');
-    menu.classList.toggle('hidden');
-}
+        window.toggleMobileMenu = function() {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('hidden');
+        }
 
-        // 初始化
         window.onload = () => {
             renderProducts();
             updateCartUI();
