@@ -660,7 +660,7 @@
         function applyPromoCode() {
             const inputVal = document.getElementById('promo-code-input').value.trim().toUpperCase();
             currentPromoCode = inputVal;
-            updateCartUI();
+            updateCartUI(); // 確保這裡有呼叫這行來刷新畫面
         }
 
         function updateCartUI() {
