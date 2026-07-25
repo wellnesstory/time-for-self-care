@@ -550,21 +550,21 @@
             
             const existingItem = cart.find(item => item.id === id && item.variant === size);
             if(existingItem) {
-                existingItem.qty++;
-            } else {
-                cart.push({
-                    id: id,
-                    name: name,
-                    variant: size,
-                    price: price,
-                    qty: 1,
-                    type: 'perfume'
-                });
-            }
-            updateCartBadge();
-            showToast(`已將 ${name} (${size}) 加入購物車`);
-        }
-
+        existingItem.qty++;
+    } else {
+        cart.push({
+            id: id,
+            name: name,
+            variant: size,
+            price: price,
+            qty: 1,
+            type: 'perfume'
+        });
+    }
+    updateCartBadge();
+    updateCartUI(); // <--- 加上這一行來更新購物車列表
+    showToast(`已將 ${name} (${size}) 加入購物車`);
+}
         function addFlowerToCart(id, name) {
             const type = document.getElementById(`type-${id}`).value;
             const color = document.getElementById(`color-${id}`).value;
