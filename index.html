@@ -467,7 +467,7 @@
                                         <option value="50ml">50ml (網購限定) - $288</option>
                                     </select>
                                 </div>
-                                <button onclick="addToCart('${item.id}', '${item.name}', 'size')" class="w-full bg-brand-dark hover:bg-brand-accent text-white font-medium rounded-xl text-sm px-5 py-2.5 text-center transition">
+                                <button onclick="addToCart('${item.id}', '${item.name}')" class="w-full bg-brand-dark hover:bg-brand-accent text-white font-medium rounded-xl text-sm px-5 py-2.5 text-center transition">
                                     加入購物車
                                 </button>
                             </div>
@@ -547,7 +547,7 @@
                                         <option value="50ml">50ml (網購限定) - $288</option>
                                     </select>
                                 </div>
-                                <button onclick="addToCart('${item.id}', '${item.month} 香水', 'size')" class="w-full bg-brand-dark hover:bg-brand-accent text-white font-medium rounded-xl text-sm px-5 py-2.5 text-center transition">
+                                <button onclick="addToCart('${item.id}', '${item.month} 香水')" class="w-full bg-brand-dark hover:bg-brand-accent text-white font-medium rounded-xl text-sm px-5 py-2.5 text-center transition">
                                     加入購物車
                                 </button>
                             </div>
@@ -574,9 +574,11 @@
             setTimeout(() => { toast.style.opacity = '0'; }, 2000);
         }
 
-        // 乾淨且唯一的 addToCart 函數
-        function addToCart(id, name, variantType) {
-            const size = document.getElementById(`size-${id}`).value;
+        // 修正後的香水加入購物車函數
+        function addToCart(id, name) {
+            const sizeSelect = document.getElementById(`size-${id}`);
+            if (!sizeSelect) return;
+            const size = sizeSelect.value;
             const price = perfumePrices[size];
             
             const existingItem = cart.find(item => item.id === id && item.variant === size);
