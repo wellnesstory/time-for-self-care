@@ -44,7 +44,6 @@
             color: #4A4A4A;
         }
         
-        /* Smooth Fade In Animation */
         .fade-in {
             animation: fadeIn 0.8s ease-in-out;
         }
@@ -53,7 +52,6 @@
             to { opacity: 1; transform: translateY(0); }
         }
 
-        /* Cart Drawer Transitions */
         .cart-overlay {
             visibility: hidden;
             opacity: 0;
@@ -71,7 +69,6 @@
             transform: translateX(0);
         }
 
-        /* Hide scrollbar for neatness */
         ::-webkit-scrollbar {
             width: 8px;
         }
@@ -136,7 +133,6 @@
 
     <!-- Hero Section -->
     <header class="relative flex items-center justify-center pt-32 pb-20 md:pt-40 md:pb-28 px-4 text-center fade-in bg-cover bg-center bg-no-repeat" style="background-image: url('https://i.postimg.cc/k5D6qFJr/Banner.png'); min-height: 80vh;">
-        <!-- 遮罩與漸變效果，確保文字清晰且與上下區塊自然融合 -->
         <div class="absolute inset-0 bg-white/30 backdrop-blur-[2px]"></div>
         <div class="absolute inset-x-0 top-0 bg-gradient-to-b from-brand-light/90 to-transparent h-32"></div>
         <div class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-brand-light to-transparent h-32"></div>
@@ -185,7 +181,7 @@
                 </p>
             </div>
            
-                <!-- Promo Banner -->
+            <!-- Promo Banner -->
             <div class="max-w-2xl mx-auto bg-brand-light/50 border border-brand-accent/30 rounded-2xl p-4 mb-10 text-center shadow-sm">
                 <span class="inline-block bg-brand-accent text-white text-xs px-2 py-1 rounded mb-2">經典套裝優惠</span>
                 <p class="text-brand-dark text-sm md:text-base">任選 3 枝 5ml 香水，結帳時輸入優惠碼 <strong class="text-brand-accent font-bold text-lg mx-1 tracking-wider">3FOR178</strong> 即享優惠價 $178<span class="text-gray-500 text-sm">（原價 $204）</span>！</p>
@@ -257,7 +253,7 @@
 
            <div id="c4-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
                 <!-- Javascript will populate this -->
-            </div>
+           </div>
         </div>
     </section>
 
@@ -350,8 +346,8 @@
             <div class="p-6 border-t border-gray-100 bg-gray-50">
                 <!-- Promo Code Section -->
                 <div class="mb-4 flex space-x-2">
-                    <input type="text" id="promo-code-input" placeholder="輸入優惠碼 (如: 3FOR178)" class="flex-1 bg-white border border-gray-200 text-sm rounded-xl px-4 py-2 focus:ring-brand-accent focus:border-brand-accent outline-none transition">
-                    <button onclick="applyPromoCode()" class="bg-brand-dark text-white px-5 py-2 rounded-xl text-sm hover:bg-brand-accent transition font-medium">使用</button>
+                    <input type="text" id="promo-code-input" placeholder="輸入優惠碼 (如: 3FOR178)" onkeydown="if(event.key === 'Enter') applyPromoCode()" class="flex-1 bg-white border border-gray-200 text-sm rounded-xl px-4 py-2 focus:ring-brand-accent focus:border-brand-accent outline-none transition">
+                    <button type="button" onclick="applyPromoCode()" class="bg-brand-dark text-white px-5 py-2 rounded-xl text-sm hover:bg-brand-accent transition font-medium">使用</button>
                 </div>
                 <p id="promo-message" class="hidden"></p>
 
@@ -424,14 +420,14 @@
         ];
 
         const chapter4Data = [
-            { id: 'c4_1', month: 'Jan 一月', desc: '堅定務實，渴望踏實，尋找安穩的依靠',  top: '佛手柑', mid: '乳香, 伯爵茶', base: '雪松木', img: 'https://i.postimg.cc/TwNrQDLC/1.png' },
+            { id: 'c4_1', month: 'Jan 一月', desc: '堅定務實，渴望踏實，尋找安穩的依靠', top: '佛手柑', mid: '乳香, 伯爵茶', base: '雪松木', img: 'https://i.postimg.cc/TwNrQDLC/1.png' },
             { id: 'c4_2', month: 'Feb 二月', desc: '浪漫敏感，渴望自由與被溫柔接納', top: '梨, 薰衣草', mid: '雲呢拿', base: '白麝香', img: 'https://i.postimg.cc/B67xNKP9/2.png' },
             { id: 'c4_3', month: 'Mar 三月', desc: '活力直率，渴望突破框架', top: '苦檸檬', mid: '鬱金香, 伯爵茶', base: '白松香', img: 'https://i.postimg.cc/JnYbKkDv/3.png' },
             { id: 'c4_4', month: 'Apr 四月', desc: '溫和優雅，渴望柔和陪伴', top: '粉紅胡椒, 茉莉', mid: '海洋', base: '檀木', img: 'https://i.postimg.cc/k4Yxwb6H/4.png' },
             { id: 'c4_5', month: 'May 五月', desc: '活躍交際，渴望激發靈感，保持快樂', top: '葡萄柚', mid: '豆蔻, 硯石', base: '橙花, 檜木', img: 'https://i.postimg.cc/DZpq5XJR/5.png' },
             { id: 'c4_6', month: 'Jun 六月', desc: '情感細膩，渴望情感上安全感', top: '桃, 洋甘菊', mid: '大馬士革玫瑰', base: '白琥珀', img: 'https://i.postimg.cc/QCBczdcH/6.png' },
             { id: 'c4_7', month: 'Jul 七月', desc: '自信熱情，渴望放大自我價值', top: '橙, 粉紅胡椒', mid: '綠色植物, 海洋', base: '琥珀', img: 'https://i.postimg.cc/wMtDrjDN/7.png' },
-            { id: 'c4_8', month: 'Aug 八月', desc: '追求完美，渴望放空，洗滌疲憊思緒',  top: '馬鞭草, 海洋', mid: '白風鈴草, 香草', base: '檜木', img: 'https://i.postimg.cc/gjw37236/8.png' },
+            { id: 'c4_8', month: 'Aug 八月', desc: '追求完美，渴望放空，洗滌疲憊思緒', top: '馬鞭草, 海洋', mid: '白風鈴草, 香草', base: '檜木', img: 'https://i.postimg.cc/gjw37236/8.png' },
             { id: 'c4_9', month: 'Sep 九月', desc: '和諧優雅，渴望平和陪伴', top: '伯爵茶', mid: '白桂花, 柑橘', base: '白木', img: 'https://i.postimg.cc/1XgDd3Dq/9.png' },
             { id: 'c4_10', month: 'Oct 十月', desc: '神秘深刻，渴望自我探索', top: '沒藥, 麝貓', mid: '蘭花', base: '皮革', img: 'https://i.postimg.cc/Kjdthh5K/10.png' },
             { id: 'c4_11', month: 'Nov 十一月', desc: '愛好自由，渴望擴闊視野', top: '柚子, 煙草', mid: '癒創木', base: '肉豆蔻', img: 'https://i.postimg.cc/C5Wbpp4Q/11.png' },
@@ -439,8 +435,8 @@
         ];
 
         let cart = [];
-        let currentPromoCode = ''; // 補上這一行
-        let discountAmount = 0;    // 補上這一行   
+        let currentPromoCode = '';
+        let discountAmount = 0;    
 
         // UI Render Functions
         function renderChapter1() {
@@ -632,7 +628,7 @@
             if(cart[index].qty + delta > 0) {
                 cart[index].qty += delta;
             } else {
-                cart.splice(index, 1); // remove if qty drops to 0
+                cart.splice(index, 1);
             }
             updateCartBadge();
             updateCartUI();
@@ -647,6 +643,12 @@
             } else {
                 badge.classList.add('hidden');
             }
+        }
+
+        function applyPromoCode() {
+            const inputVal = document.getElementById('promo-code-input').value.trim().toUpperCase();
+            currentPromoCode = inputVal;
+            updateCartUI();
         }
 
         function updateCartUI() {
@@ -679,7 +681,6 @@
                 const itemTotal = item.price * item.qty;
                 total += itemTotal;
                 
-                // 計算購物車內 5ml 香水的總數量
                 if (item.type === 'perfume' && item.variant === '5ml') {
                     count5ml += item.qty;
                 }
@@ -706,12 +707,11 @@
             container.innerHTML = html;
             subtotalEl.innerText = `HK$ ${total}`;
             
-            // 處理優惠碼邏輯
+            // 優惠碼計算邏輯
             discountAmount = 0;
             if (currentPromoCode === '3FOR178') {
                 if (count5ml >= 3) {
                     const setsOf3 = Math.floor(count5ml / 3);
-                    // 3枝原價 $204，優惠價 $178，每組折扣 $26
                     discountAmount = setsOf3 * 26; 
                     msgEl.innerText = `已成功套用優惠碼！(已折抵 HK$${discountAmount})`;
                     msgEl.className = 'text-xs text-green-600 mb-3 block';
@@ -786,20 +786,12 @@
             window.open(whatsappUrl, '_blank');
         }
 
-        function applyPromoCode() {
-            const inputVal = document.getElementById('promo-code-input').value.trim().toUpperCase();
-            currentPromoCode = inputVal;
-            updateCartUI();
-        }
-
-
         // Initialization
         window.onload = () => {
             renderChapter1();
             renderChapter2();
             renderChapter4();
             
-            // Intersection Observer for fade-ins
             const observer = new IntersectionObserver((entries) => {
                 entries.forEach(entry => {
                     if (entry.isIntersecting) {
@@ -810,7 +802,7 @@
             }, { threshold: 0.1 });
 
             document.querySelectorAll('.fade-in').forEach(el => {
-                el.style.opacity = 0; // initially hide
+                el.style.opacity = 0; 
                 observer.observe(el);
             });
         };
