@@ -624,57 +624,60 @@
     }
 }
 
-        function updateCartUI() {
-            const container = document.getElementById('cart-items');
-            const emptyMsg = document.getElementById('empty-cart-msg');
-            const subtotalEl = document.getElementById('cart-subtotal');
-            const shippingEl = document.getElementById('shipping-notice');
-            
-            if(cart.length === 0) {
-                container.innerHTML = '';
-                container.appendChild(emptyMsg);
-                emptyMsg.style.display = 'block';
-                subtotalEl.innerText = 'HK$ 0';
-                shippingEl.innerHTML = '滿 HK$800 享免運費';
-                return;
-            }
-            
-            emptyMsg.style.display = 'none';
-            let html = '';
-            let total = 0;
+function updateCartUI() {
+    const container = document.getElementById('cart-items');
+    const subtotalEl = document.getElementById('cart-subtotal');
+    const shippingEl = document.getElementById('shipping-notice');
+    
+    // 如果購物車是空的，直接寫入空狀態的 HTML
+    if(cart.length === 0) {
+        container.innerHTML = `
+            <div id="empty-cart-msg" class="text-center text-gray-400 mt-10">
+                <i class="fas fa-shopping-basket text-4xl mb-4 opacity-30"></i>
+                <p>購物車是空的</p>
+            </div>
+        `;
+        subtotalEl.innerText = 'HK$ 0';
+        shippingEl.innerHTML = '滿 HK$800 享免運費';
+        return;
+    }
+    
+    // 購物車有商品時，渲染商品列表
+    let html = '';
+    let total = 0;
 
-            cart.forEach((item, index) => {
-                const itemTotal = item.price * item.qty;
-                total += itemTotal;
-                html += `
-                    <div class="flex items-center justify-between p-4 bg-white rounded-xl border border-gray-100 shadow-sm">
-                        <div class="flex-1 min-w-0 pr-4">
-                            <h4 class="font-bold text-brand-dark text-sm truncate">${item.name}</h4>
-                            <p class="text-xs text-gray-500 mb-2">${item.variant}</p>
-                            <div class="flex items-center space-x-3 text-sm">
-                                <button onclick="changeQty(${index}, -1)" class="w-6 h-6 rounded-full bg-gray-100 text-gray-600 hover:bg-gray-200 flex items-center justify-center">-</button>
-                                <span>${item.qty}</span>
-                                <button onclick="changeQty(${index}, 1)" class="w-6 h-6 rounded-full bg-gray-100 text-gray-600 hover:bg-gray-200 flex items-center justify-center">+</button>
-                            </div>
-                        </div>
-                        <div class="text-right">
-                            <p class="font-bold text-brand-dark mb-2">HK$ ${item.price}</p>
-                            <button onclick="removeFromCart(${index})" class="text-xs text-red-400 hover:text-red-600"><i class="fas fa-trash"></i> 刪除</button>
-                        </div>
+    cart.forEach((item, index) => {
+        const itemTotal = item.price * item.qty;
+        total += itemTotal;
+        html += `
+            <div class="flex items-center justify-between p-4 bg-white rounded-xl border border-gray-100 shadow-sm">
+                <div class="flex-1 min-w-0 pr-4">
+                    <h4 class="font-bold text-brand-dark text-sm truncate">${item.name}</h4>
+                    <p class="text-xs text-gray-500 mb-2">${item.variant}</p>
+                    <div class="flex items-center space-x-3 text-sm">
+                        <button onclick="changeQty(${index}, -1)" class="w-6 h-6 rounded-full bg-gray-100 text-gray-600 hover:bg-gray-200 flex items-center justify-center">-</button>
+                        <span>${item.qty}</span>
+                        <button onclick="changeQty(${index}, 1)" class="w-6 h-6 rounded-full bg-gray-100 text-gray-600 hover:bg-gray-200 flex items-center justify-center">+</button>
                     </div>
-                `;
-            });
-            
-            container.innerHTML = html;
-            subtotalEl.innerText = `HK$ ${total}`;
-            
-            if(total >= 800) {
-                shippingEl.innerHTML = '<span class="text-green-600 font-bold"><i class="fas fa-check-circle"></i> 已達免運門檻 (只限香港地區)</span>';
-            } else {
-                const diff = 800 - total;
-                shippingEl.innerHTML = `還差 HK$${diff} 享免運費<br><span class="text-gray-400 text-[10px]">不足$800可選順豐到付或當面交收(+$15)</span>`;
-            }
-        }
+                </div>
+                <div class="text-right">
+                    <p class="font-bold text-brand-dark mb-2">HK$ ${item.price}</p>
+                    <button onclick="removeFromCart(${index})" class="text-xs text-red-400 hover:text-red-600"><i class="fas fa-trash"></i> 刪除</button>
+                </div>
+            </div>
+        `;
+    });
+    
+    container.innerHTML = html;
+    subtotalEl.innerText = `HK$ ${total}`;
+    
+    if(total >= 800) {
+        shippingEl.innerHTML = '<span class="text-green-600 font-bold"><i class="fas fa-check-circle"></i> 已達免運門檻 (只限香港地區)</span>';
+    } else {
+        const diff = 800 - total;
+        shippingEl.innerHTML = `還差 HK$${diff} 享免運費<br><span class="text-gray-400 text-[10px]">不足$800可選順豐到付或當面交收(+$15)</span>`;
+    }
+}
 
         function checkoutToWhatsApp() {
             if(cart.length === 0) {
