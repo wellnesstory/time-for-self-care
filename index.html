@@ -467,7 +467,7 @@
                                         <option value="50ml">50ml (網購限定) - $288</option>
                                     </select>
                                 </div>
-                                <button onclick="addToCart('${item.id}', '${item.name}')" class="w-full bg-brand-dark hover:bg-brand-accent text-white font-medium rounded-xl text-sm px-5 py-2.5 text-center transition">
+                                <button type="button" onclick="addToCart('${item.id}', '${item.name}')" class="w-full bg-brand-dark hover:bg-brand-accent text-white font-medium rounded-xl text-sm px-5 py-2.5 text-center transition">
                                     加入購物車
                                 </button>
                             </div>
@@ -508,7 +508,7 @@
                                         </select>
                                     </div>
                                 </div>
-                                <button onclick="addFlowerToCart('${item.id}', '${item.name}')" class="w-full bg-brand-dark hover:bg-brand-accent text-white font-medium rounded-xl text-sm px-5 py-2.5 text-center transition">
+                                <button type="button" onclick="addFlowerToCart('${item.id}', '${item.name}')" class="w-full bg-brand-dark hover:bg-brand-accent text-white font-medium rounded-xl text-sm px-5 py-2.5 text-center transition">
                                     加入購物車
                                 </button>
                             </div>
@@ -547,7 +547,7 @@
                                         <option value="50ml">50ml (網購限定) - $288</option>
                                     </select>
                                 </div>
-                                <button onclick="addToCart('${item.id}', '${item.month} 香水')" class="w-full bg-brand-dark hover:bg-brand-accent text-white font-medium rounded-xl text-sm px-5 py-2.5 text-center transition">
+                                <button type="button" onclick="addToCart('${item.id}', '${item.month} 香水')" class="w-full bg-brand-dark hover:bg-brand-accent text-white font-medium rounded-xl text-sm px-5 py-2.5 text-center transition">
                                     加入購物車
                                 </button>
                             </div>
@@ -574,11 +574,14 @@
             setTimeout(() => { toast.style.opacity = '0'; }, 2000);
         }
 
-        // 修正後的香水加入購物車函數
+        // 絕對安全的加入購物車函數
         function addToCart(id, name) {
-            const sizeSelect = document.getElementById(`size-${id}`);
-            if (!sizeSelect) return;
-            const size = sizeSelect.value;
+            const selectElement = document.getElementById(`size-${id}`);
+            if (!selectElement) {
+                console.error(`找不到 ID 為 size-${id} 的下拉選單`);
+                return;
+            }
+            const size = selectElement.value;
             const price = perfumePrices[size];
             
             const existingItem = cart.find(item => item.id === id && item.variant === size);
@@ -696,14 +699,14 @@
                             <h4 class="font-bold text-brand-dark text-sm truncate">${item.name}</h4>
                             <p class="text-xs text-gray-500 mb-2">${item.variant}</p>
                             <div class="flex items-center space-x-3 text-sm">
-                                <button onclick="changeQty(${index}, -1)" class="w-6 h-6 rounded-full bg-gray-100 text-gray-600 hover:bg-gray-200 flex items-center justify-center">-</button>
+                                <button type="button" onclick="changeQty(${index}, -1)" class="w-6 h-6 rounded-full bg-gray-100 text-gray-600 hover:bg-gray-200 flex items-center justify-center">-</button>
                                 <span>${item.qty}</span>
-                                <button onclick="changeQty(${index}, 1)" class="w-6 h-6 rounded-full bg-gray-100 text-gray-600 hover:bg-gray-200 flex items-center justify-center">+</button>
+                                <button type="button" onclick="changeQty(${index}, 1)" class="w-6 h-6 rounded-full bg-gray-100 text-gray-600 hover:bg-gray-200 flex items-center justify-center">+</button>
                             </div>
                         </div>
                         <div class="text-right">
                             <p class="font-bold text-brand-dark mb-2">HK$ ${item.price}</p>
-                            <button onclick="removeFromCart(${index})" class="text-xs text-red-400 hover:text-red-600"><i class="fas fa-trash"></i> 刪除</button>
+                            <button type="button" onclick="removeFromCart(${index})" class="text-xs text-red-400 hover:text-red-600"><i class="fas fa-trash"></i> 刪除</button>
                         </div>
                     </div>
                 `;
