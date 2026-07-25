@@ -267,8 +267,8 @@
                 <div class="bg-white p-6 rounded-2xl shadow-sm border-l-4 border-brand-accent">
                     <h3 class="font-bold text-lg mb-2 text-brand-dark"><i class="fas fa-truck text-brand-accent mr-2"></i> 運費如何計算？</h3>
                     <ul class="list-disc pl-5 text-brand-text font-light text-sm md:text-base space-y-1">
-                        <li><strong>購物滿 HK$800：</strong> 香港地區（離島及偏遠地區除外）免運費。</li>
-                        <li><strong>購物不足 HK$800 或 離島/偏遠地區：</strong> 可選順豐到付（按順豐實際收費）或當面交收 (+HK$15)。</li>
+                        <li><strong>購物滿 HK$600：</strong> 香港地區（離島及偏遠地區除外）免運費。</li>
+                        <li><strong>購物不足 HK$600 或 離島/偏遠地區：</strong> 可選順豐到付（按順豐實際收費）或當面交收 (+HK$15)。</li>
                     </ul>
                 </div>
             </div>
@@ -338,7 +338,7 @@
                     <span id="cart-subtotal" class="font-bold">HK$ 0</span>
                 </div>
                 <div id="shipping-notice" class="text-xs text-brand-accent mb-4 text-right">
-                    滿 HK$800 享免運費
+                    滿 HK$600 享免運費
                 </div>
                 <button onclick="checkoutToWhatsApp()" class="w-full bg-green-500 hover:bg-green-600 text-white py-4 rounded-xl font-bold flex justify-center items-center transition shadow-lg">
                     <i class="fab fa-whatsapp text-xl mr-2"></i> WhatsApp 結帳
@@ -638,7 +638,7 @@ function updateCartUI() {
             </div>
         `;
         subtotalEl.innerText = 'HK$ 0';
-        shippingEl.innerHTML = '滿 HK$800 享免運費';
+        shippingEl.innerHTML = '滿 HK$600 享免運費';
         return;
     }
     
@@ -671,11 +671,11 @@ function updateCartUI() {
     container.innerHTML = html;
     subtotalEl.innerText = `HK$ ${total}`;
     
-    if(total >= 800) {
+    if(total >= 600) {
         shippingEl.innerHTML = '<span class="text-green-600 font-bold"><i class="fas fa-check-circle"></i> 已達免運門檻 (只限香港地區)</span>';
     } else {
-        const diff = 800 - total;
-        shippingEl.innerHTML = `還差 HK$${diff} 享免運費<br><span class="text-gray-400 text-[10px]">不足$800可選順豐到付或當面交收(+$15)</span>`;
+        const diff = 600 - total;
+        shippingEl.innerHTML = `還差 HK$${diff} 享免運費<br><span class="text-gray-400 text-[10px]">不足$600可選順豐到付或當面交收(+$15)</span>`;
     }
 }
 
@@ -696,8 +696,8 @@ function updateCartUI() {
             msg += `\n----------------------\n`;
             msg += `小計：HK$ ${total}\n`;
             
-            if(total >= 800) {
-                msg += `運費：免運費 (已滿 HK$800)\n`;
+            if(total >= 600) {
+                msg += `運費：免運費 (已滿 HK$600)\n`;
             } else {
                 msg += `運費：未滿免運門檻\n(請告知選擇：順豐到付 / 當面交收+$15)\n`;
             }
