@@ -333,6 +333,16 @@
 
             <!-- Cart Footer -->
             <div class="p-6 border-t border-gray-100 bg-gray-50">
+                <!-- 優惠碼輸入框 (新增) -->
+                <div class="mb-4 flex space-x-2">
+                    <input type="text" id="promo-input" placeholder="輸入優惠碼" class="flex-1 bg-white border border-gray-200 text-sm rounded-lg p-2 focus:ring-brand-accent focus:border-brand-accent outline-none">
+                    <button onclick="applyPromo()" class="bg-brand-dark text-white px-4 py-2 rounded-lg text-sm hover:bg-brand-accent transition">套用</button>
+                </div>
+                
+                <div id="discount-row" class="hidden justify-between mb-2 text-green-600 text-sm">
+                    <!-- Javascript 將填入折扣資訊 -->
+                </div>
+
                 <div class="flex justify-between mb-2 text-brand-text">
                     <span>小計</span>
                     <span id="cart-subtotal" class="font-bold">HK$ 0</span>
@@ -345,8 +355,6 @@
                 </button>
                 <p class="text-xs text-center text-gray-400 mt-3">點擊後將跳轉至 WhatsApp 確認訂單</p>
             </div>
-        </div>
-    </div>
 
     <!-- Toast Notification -->
     <div id="toast" class="fixed bottom-5 left-1/2 transform -translate-x-1/2 bg-brand-dark text-white px-6 py-3 rounded-full shadow-lg opacity-0 transition-opacity duration-300 pointer-events-none z-50 flex items-center">
@@ -407,7 +415,9 @@
         ];
 
         let cart = [];
-
+        let activePromo = '';     // 記錄目前使用的優惠碼
+        let discountAmount = 0;   // 記錄折扣金額
+        
         // UI Render Functions
         function renderChapter1() {
             const container = document.getElementById('c1-grid');
@@ -643,33 +653,53 @@ function updateCartUI() {
     }
     
     // 購物車有商品時，渲染商品列表
-    let html = '';
-    let total = 0;
+            let html = '';
+            let total = 0;
+            let count5ml = 0; // 計算 5ml 的總數量
 
-    cart.forEach((item, index) => {
-        const itemTotal = item.price * item.qty;
-        total += itemTotal;
-        html += `
-            <div class="flex items-center justify-between p-4 bg-white rounded-xl border border-gray-100 shadow-sm">
-                <div class="flex-1 min-w-0 pr-4">
-                    <h4 class="font-bold text-brand-dark text-sm truncate">${item.name}</h4>
-                    <p class="text-xs text-gray-500 mb-2">${item.variant}</p>
-                    <div class="flex items-center space-x-3 text-sm">
-                        <button onclick="changeQty(${index}, -1)" class="w-6 h-6 rounded-full bg-gray-100 text-gray-600 hover:bg-gray-200 flex items-center justify-center">-</button>
-                        <span>${item.qty}</span>
-                        <button onclick="changeQty(${index}, 1)" class="w-6 h-6 rounded-full bg-gray-100 text-gray-600 hover:bg-gray-200 flex items-center justify-center">+</button>
-                    </div>
-                </div>
-                <div class="text-right">
-                    <p class="font-bold text-brand-dark mb-2">HK$ ${item.price}</p>
-                    <button onclick="removeFromCart(${index})" class="text-xs text-red-400 hover:text-red-600"><i class="fas fa-trash"></i> 刪除</button>
-                </div>
-            </div>
-        `;
-    });
-    
-    container.innerHTML = html;
-    subtotalEl.innerText = `HK$ ${total}`;
+            cart.forEach((item, index) => {
+                const itemTotal = item.price * item.qty;
+                total += itemTotal;
+                
+                // 統計 5ml 香水的數量
+                if (item.type === 'perfume' && item.variant === '5ml') {
+                    count5ml += item.qty;
+                }
+                
+                html += `...` // (保留你原本渲染商品列表的 html)
+            });
+            
+            container.innerHTML = html;
+
+            // 優惠碼計算邏輯
+            discountAmount = 0;
+            const discountRow = document.getElementById('discount-row');
+            
+            if (activePromo === 'STORY178') {
+                discountRow.classList.remove('hidden');
+                discountRow.classList.add('flex');
+                
+                if (count5ml >= 3) {
+                    // 每 3 枝 5ml 折扣：(68 * 3) - 178 = $26
+                    const setsOfThree = Math.floor(count5ml / 3);
+                    discountAmount = setsOfThree * 26; 
+                    total -= discountAmount;
+                    
+                    discountRow.innerHTML = `
+                        <span>套裝優惠 (任選3枝5ml)</span>
+                        <span class="font-bold">-HK$ ${discountAmount}</span>
+                    `;
+                } else {
+                    discountRow.innerHTML = `
+                        <span class="text-red-400 text-xs">【提示】需選購最少3枝 5ml 香水才能享有優惠</span>
+                    `;
+                }
+            } else {
+                discountRow.classList.add('hidden');
+                discountRow.classList.remove('flex');
+            }
+
+            if(subtotalEl) subtotalEl.innerText = `HK$ ${total}`;
     
     if(total >= 600) {
         shippingEl.innerHTML = '<span class="text-green-600 font-bold"><i class="fas fa-check-circle"></i> 已達免運門檻 (只限香港地區)</span>';
@@ -690,10 +720,13 @@ function updateCartUI() {
 
             cart.forEach((item, index) => {
                 msg += `${index + 1}. ${item.name} (${item.variant}) - HK$${item.price} x ${item.qty}\n`;
-                total += (item.price * item.qty);
             });
 
             msg += `\n----------------------\n`;
+            if (activePromo && discountAmount > 0) {
+                msg += `已使用優惠碼：${activePromo}\n`;
+                msg += `套裝折扣：-HK$ ${discountAmount}\n`;
+            }
             msg += `小計：HK$ ${total}\n`;
             
             if(total >= 600) {
@@ -709,7 +742,23 @@ function updateCartUI() {
             
             window.open(whatsappUrl, '_blank');
         }
-
+        
+        function applyPromo() {
+            const input = document.getElementById('promo-input').value.trim().toUpperCase();
+            if (input === '3FOR178') { // 這裡可以更改你想要的優惠碼
+                activePromo = input;
+                updateCartUI();
+                showToast('優惠碼已成功套用！');
+            } else if (input === '') {
+                activePromo = '';
+                updateCartUI();
+            } else {
+                alert('優惠碼無效或已過期');
+                activePromo = '';
+                document.getElementById('promo-input').value = '';
+                updateCartUI();
+            }
+        }
         // Initialization
         window.onload = () => {
             renderChapter1();
