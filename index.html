@@ -574,15 +574,8 @@
             setTimeout(() => { toast.style.opacity = '0'; }, 2000);
         }
 
+        // 乾淨且唯一的 addToCart 函數
         function addToCart(id, name, variantType) {
-            const size = document.getElementById(`size-${id}`).value;
-            const price = perfumePrices[size];
-            
-            const existingItem = cart.find(item => item.id === id && item.variant === size);
-            if(existingItem) {
-                existingItem.qty++;
-            } else {
-                function addToCart(id, name, variantType) {
             const size = document.getElementById(`size-${id}`).value;
             const price = perfumePrices[size];
             
@@ -596,14 +589,11 @@
                     variant: size,
                     price: price,
                     qty: 1,
-                    type: 'perfume' // 統一確保所有香水都有這個屬性
+                    type: 'perfume'
                 });
             }
             updateCartBadge();
-            showToast(`已將 ${name} (${size}) 加入購物車`);
-        }
-            }
-            updateCartBadge();
+            updateCartUI();
             showToast(`已將 ${name} (${size}) 加入購物車`);
         }
 
@@ -627,6 +617,7 @@
                 });
             }
             updateCartBadge();
+            updateCartUI();
             showToast(`已將 ${name} (${type}) 加入購物車`);
         }
 
@@ -660,7 +651,7 @@
         function applyPromoCode() {
             const inputVal = document.getElementById('promo-code-input').value.trim().toUpperCase();
             currentPromoCode = inputVal;
-            updateCartUI(); // 確保這裡有呼叫這行來刷新畫面
+            updateCartUI();
         }
 
         function updateCartUI() {
