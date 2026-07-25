@@ -573,20 +573,21 @@
 
             const existingItem = cart.find(item => item.id === id && item.variant === variantStr);
             if(existingItem) {
-                existingItem.qty++;
-            } else {
-                cart.push({
-                    id: id,
-                    name: name,
-                    variant: variantStr,
-                    price: price,
-                    qty: 1,
-                    type: 'flower'
-                });
-            }
-            updateCartBadge();
-            showToast(`已將 ${name} (${type}) 加入購物車`);
-        }
+        existingItem.qty++;
+    } else {
+        cart.push({
+            id: id,
+            name: name,
+            variant: variantStr,
+            price: price,
+            qty: 1,
+            type: 'flower'
+        });
+    }
+    updateCartBadge();
+    updateCartUI(); // <--- 加上這一行來更新購物車列表
+    showToast(`已將 ${name} (${type}) 加入購物車`);
+}
 
         function removeFromCart(index) {
             cart.splice(index, 1);
