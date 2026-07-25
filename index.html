@@ -582,14 +582,26 @@
             if(existingItem) {
                 existingItem.qty++;
             } else {
+                function addToCart(id, name, variantType) {
+            const size = document.getElementById(`size-${id}`).value;
+            const price = perfumePrices[size];
+            
+            const existingItem = cart.find(item => item.id === id && item.variant === size);
+            if(existingItem) {
+                existingItem.qty++;
+            } else {
                 cart.push({
                     id: id,
                     name: name,
                     variant: size,
                     price: price,
                     qty: 1,
-                    type: 'perfume'
+                    type: 'perfume' // 統一確保所有香水都有這個屬性
                 });
+            }
+            updateCartBadge();
+            showToast(`已將 ${name} (${size}) 加入購物車`);
+        }
             }
             updateCartBadge();
             showToast(`已將 ${name} (${size}) 加入購物車`);
