@@ -694,13 +694,13 @@ function updateCartUI() {
     discountAmount = 0;
     const discountRow = document.getElementById('discount-row');
     
-    // 統一判斷條件為 3FOR178
-    if (activePromo === '3FOR178') {
+    // 統一判斷條件為 3FOR168
+    if (activePromo === '3FOR168') {
         discountRow.classList.remove('hidden');
         discountRow.classList.add('flex');
         
         if (count5ml >= 3) {
-            // 每 3 枝 5ml 折扣：(68 * 3) - 178 = $26
+            // 每 3 枝 5ml 折扣：(68 * 3) - 168 = $36
             const setsOfThree = Math.floor(count5ml / 3);
             discountAmount = setsOfThree * 26; 
             total -= discountAmount;
@@ -775,7 +775,7 @@ function updateCartUI() {
         
         function applyPromo() {
             const input = document.getElementById('promo-input').value.trim().toUpperCase();
-            if (input === '3FOR178') { // 這裡可以更改你想要的優惠碼
+            if (input === '3FOR168') { // 這裡可以更改你想要的優惠碼
                 activePromo = input;
                 updateCartUI();
                 showToast('優惠碼已成功套用！');
