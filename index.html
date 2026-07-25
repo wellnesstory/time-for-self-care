@@ -606,15 +606,23 @@
         }
 
         function updateCartBadge() {
-            const badge = document.getElementById('cart-badge');
-            const totalQty = cart.reduce((sum, item) => sum + item.qty, 0);
-            if (totalQty > 0) {
-                badge.innerText = totalQty;
-                badge.classList.remove('hidden');
-            } else {
-                badge.classList.add('hidden');
-            }
-        }
+           const badge = document.getElementById('cart-badge');
+    const cartCount = document.getElementById('cart-count'); // 新增：抓取購物車列表內的數字標籤
+    const totalQty = cart.reduce((sum, item) => sum + item.qty, 0);
+    
+    // 1. 更新導覽列右上角的數字 Badge
+    if (totalQty > 0) {
+        badge.innerText = totalQty;
+        badge.classList.remove('hidden');
+    } else {
+        badge.classList.add('hidden');
+    }
+
+    // 2. 更新購物車打開時，標題旁邊的 ( ) 數字
+    if (cartCount) {
+        cartCount.innerText = `(${totalQty})`;
+    }
+}
 
         function updateCartUI() {
             const container = document.getElementById('cart-items');
