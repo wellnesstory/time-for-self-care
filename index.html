@@ -189,7 +189,7 @@
                 <p class="text-brand-dark text-sm md:text-base">任選 3 枝 5ml 香水，結帳時輸入優惠碼 <strong class="text-brand-accent font-bold text-lg mx-1 tracking-wider">3FOR168</strong> 即享優惠價 $168<span class="text-gray-500 text-sm">（原價 $204）</span>！</p>
             </div>
 
-            <div id="c4-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            <div id="c1-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
                 <!-- Javascript will populate this -->
             </div>
         </div>
@@ -252,6 +252,7 @@
                 <p class="text-brand-dark text-sm md:text-base">任選 3 枝 5ml 香水，結帳時輸入優惠碼 <strong class="text-brand-accent font-bold text-lg mx-1 tracking-wider">3FOR168</strong> 即享優惠價 $168<span class="text-gray-500 text-sm">（原價 $204）</span>！</p>
             </div>
 
+            <!-- 修正這裡：將 id="c4-grid" 改為獨立的 id -->
             <div id="c4-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
                 <!-- Javascript will populate this -->
             </div>
@@ -427,12 +428,13 @@
         ];
 
         let cart = [];
-        let activePromo = '';     // 記錄目前使用的優惠碼
+        let activePromo = '';    // 記錄目前使用的優惠碼
         let discountAmount = 0;   // 記錄折扣金額
         
         // UI Render Functions
         function renderChapter1() {
             const container = document.getElementById('c1-grid');
+            if(!container) return;
             let html = '';
             chapter1Data.forEach(item => {
                 html += `
@@ -472,6 +474,7 @@
 
         function renderChapter2() {
             const container = document.getElementById('c2-grid');
+            if(!container) return;
             let html = '';
             chapter2Data.forEach(item => {
                 const colorOptions = item.colors.map(c => `<option value="${c}">${c}</option>`).join('');
@@ -513,6 +516,7 @@
 
         function renderChapter4() {
             const container = document.getElementById('c4-grid');
+            if(!container) return;
             let html = '';
             chapter4Data.forEach(item => {
                 html += `
