@@ -136,7 +136,6 @@
 
     <!-- Hero Section -->
     <header class="relative flex items-center justify-center pt-32 pb-20 md:pt-40 md:pb-28 px-4 text-center fade-in bg-cover bg-center bg-no-repeat" style="background-image: url('https://i.postimg.cc/k5D6qFJr/Banner.png'); min-height: 80vh;">
-        <!-- 遮罩與漸變效果，確保文字清晰且與上下區塊自然融合 -->
         <div class="absolute inset-0 bg-white/30 backdrop-blur-[2px]"></div>
         <div class="absolute inset-x-0 top-0 bg-gradient-to-b from-brand-light/90 to-transparent h-32"></div>
         <div class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-brand-light to-transparent h-32"></div>
@@ -158,7 +157,7 @@
             <span class="text-brand-accent text-sm tracking-widest uppercase mb-2 block">About Us</span>
             <h2 class="font-serif text-3xl md:text-4xl text-brand-dark mb-8">關於我們</h2>
             <div class="space-y-6 text-brand-text font-light leading-relaxed text-base md:text-lg">
-             <p>
+               <p>
                     Wellnesstory 是一間原創手工香水品牌。<br class="hidden md:block">
                     我們希望透過不同的香氣產品，讓都市人在忙碌的生活中停一停。
                 </p>
@@ -187,16 +186,6 @@
             <div id="c1-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
                 <!-- Javascript will populate this -->
             </div>
-        </div>
-        <!-- Promo Banner -->
-            <div class="max-w-2xl mx-auto bg-brand-light/50 border border-brand-accent/30 rounded-2xl p-4 mb-10 text-center shadow-sm">
-                <span class="inline-block bg-brand-accent text-white text-xs px-2 py-1 rounded mb-2">經典套裝優惠</span>
-                <p class="text-brand-dark text-sm md:text-base">任選 3 枝 5ml 香水，結帳時輸入優惠碼 <strong class="text-brand-accent font-bold text-lg mx-1 tracking-wider">3FOR178</strong> 即享優惠價 $168<span class="text-gray-500 text-sm">（原價 $204）</span>！</p>
-            </div>
-
-           <div id="c4-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-                <!-- Javascript will populate this -->
-           </div>
         </div>
     </section>
 
@@ -250,19 +239,16 @@
                     十二個月份，十二種靈魂氣息。<br>尋找與你心靈共鳴的專屬香調。
                 </p>
             </div>
+
+            <!-- Promo Banner -->
+            <div class="max-w-2xl mx-auto bg-brand-light/50 border border-brand-accent/30 rounded-2xl p-4 mb-10 text-center shadow-sm">
+                <span class="inline-block bg-brand-accent text-white text-xs px-2 py-1 rounded mb-2">經典套裝優惠</span>
+                <p class="text-brand-dark text-sm md:text-base">任選 3 枝 5ml 香水，結帳時輸入優惠碼 <strong class="text-brand-accent font-bold text-lg mx-1 tracking-wider">3FOR168</strong> 即享優惠價 $168<span class="text-gray-500 text-sm">（原價 $204）</span>！</p>
+            </div>
+
             <div id="c4-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
                 <!-- Javascript will populate this -->
             </div>
-        </div>
-        <!-- Promo Banner -->
-            <div class="max-w-2xl mx-auto bg-brand-light/50 border border-brand-accent/30 rounded-2xl p-4 mb-10 text-center shadow-sm">
-                <span class="inline-block bg-brand-accent text-white text-xs px-2 py-1 rounded mb-2">經典套裝優惠</span>
-                <p class="text-brand-dark text-sm md:text-base">任選 3 枝 5ml 香水，結帳時輸入優惠碼 <strong class="text-brand-accent font-bold text-lg mx-1 tracking-wider">3FOR178</strong> 即享優惠價 $168<span class="text-gray-500 text-sm">（原價 $204）</span>！</p>
-            </div>
-
-           <div id="c4-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-                <!-- Javascript will populate this -->
-           </div>
         </div>
     </section>
 
@@ -344,7 +330,6 @@
             
             <!-- Cart Items -->
             <div id="cart-items" class="flex-1 overflow-y-auto p-6 space-y-4">
-                <!-- Javascript will populate this -->
                 <div id="empty-cart-msg" class="text-center text-gray-400 mt-10">
                     <i class="fas fa-shopping-basket text-4xl mb-4 opacity-30"></i>
                     <p>購物車是空的</p>
@@ -353,7 +338,6 @@
 
             <!-- Cart Footer -->
             <div class="p-6 border-t border-gray-100 bg-gray-50">
-                <!-- 優惠碼輸入框 (新增) -->
                 <div class="mb-4 flex space-x-2">
                     <input type="text" id="promo-input" placeholder="輸入優惠碼" class="flex-1 bg-white border border-gray-200 text-sm rounded-lg p-2 focus:ring-brand-accent focus:border-brand-accent outline-none">
                     <button onclick="applyPromo()" class="bg-brand-dark text-white px-4 py-2 rounded-lg text-sm hover:bg-brand-accent transition">套用</button>
@@ -375,6 +359,8 @@
                 </button>
                 <p class="text-xs text-center text-gray-400 mt-3">點擊後將跳轉至 WhatsApp 確認訂單</p>
             </div>
+        </div>
+    </div>
 
     <!-- Toast Notification -->
     <div id="toast" class="fixed bottom-5 left-1/2 transform -translate-x-1/2 bg-brand-dark text-white px-6 py-3 rounded-full shadow-lg opacity-0 transition-opacity duration-300 pointer-events-none z-50 flex items-center">
@@ -580,21 +566,22 @@
             
             const existingItem = cart.find(item => item.id === id && item.variant === size);
             if(existingItem) {
-        existingItem.qty++;
-    } else {
-        cart.push({
-            id: id,
-            name: name,
-            variant: size,
-            price: price,
-            qty: 1,
-            type: 'perfume'
-        });
-    }
-    updateCartBadge();
-    updateCartUI(); // <--- 加上這一行來更新購物車列表
-    showToast(`已將 ${name} (${size}) 加入購物車`);
-}
+                existingItem.qty++;
+            } else {
+                cart.push({
+                    id: id,
+                    name: name,
+                    variant: size,
+                    price: price,
+                    qty: 1,
+                    type: 'perfume'
+                });
+            }
+            updateCartBadge();
+            updateCartUI();
+            showToast(`已將 ${name} (${size}) 加入購物車`);
+        }
+
         function addFlowerToCart(id, name) {
             const type = document.getElementById(`type-${id}`).value;
             const color = document.getElementById(`color-${id}`).value;
@@ -603,21 +590,21 @@
 
             const existingItem = cart.find(item => item.id === id && item.variant === variantStr);
             if(existingItem) {
-        existingItem.qty++;
-    } else {
-        cart.push({
-            id: id,
-            name: name,
-            variant: variantStr,
-            price: price,
-            qty: 1,
-            type: 'flower'
-        });
-    }
-    updateCartBadge();
-    updateCartUI(); // <--- 加上這一行來更新購物車列表
-    showToast(`已將 ${name} (${type}) 加入購物車`);
-}
+                existingItem.qty++;
+            } else {
+                cart.push({
+                    id: id,
+                    name: name,
+                    variant: variantStr,
+                    price: price,
+                    qty: 1,
+                    type: 'flower'
+                });
+            }
+            updateCartBadge();
+            updateCartUI();
+            showToast(`已將 ${name} (${type}) 加入購物車`);
+        }
 
         function removeFromCart(index) {
             cart.splice(index, 1);
@@ -629,173 +616,162 @@
             if(cart[index].qty + delta > 0) {
                 cart[index].qty += delta;
             } else {
-                cart.splice(index, 1); // remove if qty drops to 0
+                cart.splice(index, 1);
             }
             updateCartBadge();
             updateCartUI();
         }
 
         function updateCartBadge() {
-           const badge = document.getElementById('cart-badge');
-    const cartCount = document.getElementById('cart-count'); // 新增：抓取購物車列表內的數字標籤
-    const totalQty = cart.reduce((sum, item) => sum + item.qty, 0);
-    
-    // 1. 更新導覽列右上角的數字 Badge
-    if (totalQty > 0) {
-        badge.innerText = totalQty;
-        badge.classList.remove('hidden');
-    } else {
-        badge.classList.add('hidden');
-    }
-
-    // 2. 更新購物車打開時，標題旁邊的 ( ) 數字
-    if (cartCount) {
-        cartCount.innerText = `(${totalQty})`;
-    }
-}
-
-function updateCartUI() {
-    const container = document.getElementById('cart-items');
-    const subtotalEl = document.getElementById('cart-subtotal');
-    const shippingEl = document.getElementById('shipping-notice');
-    
-    if(!container) return;
-
-    // 如果購物車是空的，直接寫入空狀態的 HTML
-    if(cart.length === 0) {
-        container.innerHTML = `
-            <div id="empty-cart-msg" class="text-center text-gray-400 mt-10">
-                <i class="fas fa-shopping-basket text-4xl mb-4 opacity-30"></i>
-                <p>購物車是空的</p>
-            </div>
-        `;
-        if(subtotalEl) subtotalEl.innerText = 'HK$ 0';
-        if(shippingEl) shippingEl.innerHTML = '滿 HK$600 享免運費';
-        return;
-    }
-    
-    // 購物車有商品時，渲染商品列表
-    let html = '';
-    let total = 0;
-    let count5ml = 0; // 計算 5ml 的總數量
-
-    cart.forEach((item, index) => {
-        const itemTotal = item.price * item.qty;
-        total += itemTotal;
-        
-        // 統計 5ml 香水的數量
-        if (item.type === 'perfume' && item.variant === '5ml') {
-            count5ml += item.qty;
-        }
-        
-        // 這裡放回了完整的 HTML 結構，解決「...」的問題
-        html += `
-            <div class="flex items-center justify-between p-4 bg-white rounded-xl border border-gray-100 shadow-sm">
-                <div class="flex-1 min-w-0 pr-4">
-                    <h4 class="font-bold text-brand-dark text-sm truncate">${item.name}</h4>
-                    <p class="text-xs text-gray-500 mb-2">${item.variant}</p>
-                    <div class="flex items-center space-x-3 text-sm">
-                        <button onclick="changeQty(${index}, -1)" class="w-6 h-6 rounded-full bg-gray-100 text-gray-600 hover:bg-gray-200 flex items-center justify-center">-</button>
-                        <span>${item.qty}</span>
-                        <button onclick="changeQty(${index}, 1)" class="w-6 h-6 rounded-full bg-gray-100 text-gray-600 hover:bg-gray-200 flex items-center justify-center">+</button>
-                    </div>
-                </div>
-                <div class="text-right">
-                    <p class="font-bold text-brand-dark mb-2">HK$ ${item.price}</p>
-                    <button onclick="removeFromCart(${index})" class="text-xs text-red-400 hover:text-red-600"><i class="fas fa-trash"></i> 刪除</button>
-                </div>
-            </div>
-        `;
-    });
-    
-    container.innerHTML = html;
-
-    // 優惠碼計算邏輯
-    discountAmount = 0;
-    const discountRow = document.getElementById('discount-row');
-    
-    // 統一判斷條件為 3FOR168
-    if (activePromo === '3FOR168') {
-        discountRow.classList.remove('hidden');
-        discountRow.classList.add('flex');
-        
-        if (count5ml >= 3) {
-            // 每 3 枝 5ml 折扣：(68 * 3) - 168 = $36
-            const setsOfThree = Math.floor(count5ml / 3);
-            discountAmount = setsOfThree * 36; 
-            total -= discountAmount;
+            const badge = document.getElementById('cart-badge');
+            const cartCount = document.getElementById('cart-count');
+            const totalQty = cart.reduce((sum, item) => sum + item.qty, 0);
             
-            discountRow.innerHTML = `
-                <span>套裝優惠 (任選3枝5ml)</span>
-                <span class="font-bold">-HK$ ${discountAmount}</span>
-            `;
-        } else {
-            discountRow.innerHTML = `
-                <span class="text-red-400 text-xs">【提示】需選購最少3枝 5ml 香水才能享有優惠</span>
-            `;
-        }
-    } else {
-        if (discountRow) {
-            discountRow.classList.add('hidden');
-            discountRow.classList.remove('flex');
-        }
-    }
+            if (totalQty > 0) {
+                badge.innerText = totalQty;
+                badge.classList.remove('hidden');
+            } else {
+                badge.classList.add('hidden');
+            }
 
-    if(subtotalEl) subtotalEl.innerText = `HK$ ${total}`;
-
-    // 運費計算
-    if(shippingEl) {
-        if(total >= 600) {
-            shippingEl.innerHTML = '<span class="text-green-600 font-bold"><i class="fas fa-check-circle"></i> 已達免運門檻 (只限香港地區)</span>';
-        } else {
-            const diff = 600 - total;
-            shippingEl.innerHTML = `還差 HK$${diff} 享免運費<br><span class="text-gray-400 text-[10px]">不足$600可選順豐到付或當面交收(+$15)</span>`;
+            if (cartCount) {
+                cartCount.innerText = `(${totalQty})`;
+            }
         }
-    }
-}
+
+        function updateCartUI() {
+            const container = document.getElementById('cart-items');
+            const subtotalEl = document.getElementById('cart-subtotal');
+            const shippingEl = document.getElementById('shipping-notice');
+            
+            if(!container) return;
+
+            if(cart.length === 0) {
+                container.innerHTML = `
+                    <div id="empty-cart-msg" class="text-center text-gray-400 mt-10">
+                        <i class="fas fa-shopping-basket text-4xl mb-4 opacity-30"></i>
+                        <p>購物車是空的</p>
+                    </div>
+                `;
+                if(subtotalEl) subtotalEl.innerText = 'HK$ 0';
+                if(shippingEl) shippingEl.innerHTML = '滿 HK$600 享免運費';
+                return;
+            }
+            
+            let html = '';
+            let total = 0;
+            let count5ml = 0;
+
+            cart.forEach((item, index) => {
+                const itemTotal = item.price * item.qty;
+                total += itemTotal;
+                
+                if (item.type === 'perfume' && item.variant === '5ml') {
+                    count5ml += item.qty;
+                }
+                
+                html += `
+                    <div class="flex items-center justify-between p-4 bg-white rounded-xl border border-gray-100 shadow-sm">
+                        <div class="flex-1 min-w-0 pr-4">
+                            <h4 class="font-bold text-brand-dark text-sm truncate">${item.name}</h4>
+                            <p class="text-xs text-gray-500 mb-2">${item.variant}</p>
+                            <div class="flex items-center space-x-3 text-sm">
+                                <button onclick="changeQty(${index}, -1)" class="w-6 h-6 rounded-full bg-gray-100 text-gray-600 hover:bg-gray-200 flex items-center justify-center">-</button>
+                                <span>${item.qty}</span>
+                                <button onclick="changeQty(${index}, 1)" class="w-6 h-6 rounded-full bg-gray-100 text-gray-600 hover:bg-gray-200 flex items-center justify-center">+</button>
+                            </div>
+                        </div>
+                        <div class="text-right">
+                            <p class="font-bold text-brand-dark mb-2">HK$ ${item.price}</p>
+                            <button onclick="removeFromCart(${index})" class="text-xs text-red-400 hover:text-red-600"><i class="fas fa-trash"></i> 刪除</button>
+                        </div>
+                    </div>
+                `;
+            });
+            
+            container.innerHTML = html;
+
+            discountAmount = 0;
+            const discountRow = document.getElementById('discount-row');
+            
+            if (activePromo === '3FOR168') {
+                discountRow.classList.remove('hidden');
+                discountRow.classList.add('flex');
+                
+                if (count5ml >= 3) {
+                    const setsOfThree = Math.floor(count5ml / 3);
+                    discountAmount = setsOfThree * 36; 
+                    total -= discountAmount;
+                    
+                    discountRow.innerHTML = `
+                        <span>套裝優惠 (任選3枝5ml)</span>
+                        <span class="font-bold">-HK$ ${discountAmount}</span>
+                    `;
+                } else {
+                    discountRow.innerHTML = `
+                        <span class="text-red-400 text-xs">【提示】需選購最少3枝 5ml 香水才能享有優惠</span>
+                    `;
+                }
+            } else {
+                if (discountRow) {
+                    discountRow.classList.add('hidden');
+                    discountRow.classList.remove('flex');
+                }
+            }
+
+            if(subtotalEl) subtotalEl.innerText = `HK$ ${total}`;
+
+            if(shippingEl) {
+                if(total >= 600) {
+                    shippingEl.innerHTML = '<span class="text-green-600 font-bold"><i class="fas fa-check-circle"></i> 已達免運門檻 (只限香港地區)</span>';
+                } else {
+                    const diff = 600 - total;
+                    shippingEl.innerHTML = `還差 HK$${diff} 享免運費<br><span class="text-gray-400 text-[10px]">不足$600可選順豐到付或當面交收(+$15)</span>`;
+                }
+            }
+        }
 
         function checkoutToWhatsApp() {
-    if(cart.length === 0) {
-        alert("購物車是空的，請先加入商品！");
-        return;
-    }
+            if(cart.length === 0) {
+                alert("購物車是空的，請先加入商品！");
+                return;
+            }
 
-    let msg = "您好，我想訂購以下產品：\n\n";
-    let total = 0;
+            let msg = "您好，我想訂購以下產品：\n\n";
+            let total = 0;
 
-    cart.forEach((item, index) => {
-        msg += `${index + 1}. ${item.name} (${item.variant}) - HK$${item.price} x ${item.qty}\n`;
-        total += (item.price * item.qty); // 修復 Bug：把計算總額的這行加回來！
-    });
+            cart.forEach((item, index) => {
+                msg += `${index + 1}. ${item.name} (${item.variant}) - HK$${item.price} x ${item.qty}\n`;
+                total += (item.price * item.qty);
+            });
 
-    msg += `\n----------------------\n`;
-    
-    // 如果有使用優惠碼且折扣金額大於 0，顯示在 WhatsApp 訊息中並扣除總價
-    if (activePromo && discountAmount > 0) {
-        msg += `已使用優惠碼：${activePromo}\n`;
-        msg += `套裝折扣：-HK$ ${discountAmount}\n`;
-        total -= discountAmount; // 讓 WhatsApp 傳送的總額自動扣掉折扣！
-    }
-    
-    msg += `小計：HK$ ${total}\n`;
-    
-    if(total >= 600) {
-        msg += `運費：免運費 (已滿 HK$600)\n`;
-    } else {
-        msg += `運費：未滿免運門檻\n(請告知選擇：順豐到付 / 當面交收+$15)\n`;
-    }
+            msg += `\n----------------------\n`;
+            
+            if (activePromo && discountAmount > 0) {
+                msg += `已使用優惠碼：${activePromo}\n`;
+                msg += `套裝折扣：-HK$ ${discountAmount}\n`;
+                total -= discountAmount;
+            }
+            
+            msg += `小計：HK$ ${total}\n`;
+            
+            if(total >= 600) {
+                msg += `運費：免運費 (已滿 HK$600)\n`;
+            } else {
+                msg += `運費：未滿免運門檻\n(請告知選擇：順豐到付 / 當面交收+$15)\n`;
+            }
 
-    msg += `\n請問接受哪種付款方式？(FPS/PayMe/Alipay/WeChat Pay)`;
+            msg += `\n請問接受哪種付款方式？(FPS/PayMe/Alipay/WeChat Pay)`;
 
-    const encodedMsg = encodeURIComponent(msg);
-    const whatsappUrl = `https://wa.me/85264630300?text=${encodedMsg}`;
-    
-    window.open(whatsappUrl, '_blank');
-}
+            const encodedMsg = encodeURIComponent(msg);
+            const whatsappUrl = `https://wa.me/85264630300?text=${encodedMsg}`;
+            
+            window.open(whatsappUrl, '_blank');
+        }
         
         function applyPromo() {
             const input = document.getElementById('promo-input').value.trim().toUpperCase();
-            if (input === '3FOR168') { // 這裡可以更改你想要的優惠碼
+            if (input === '3FOR168') {
                 activePromo = input;
                 updateCartUI();
                 showToast('優惠碼已成功套用！');
@@ -809,13 +785,13 @@ function updateCartUI() {
                 updateCartUI();
             }
         }
+
         // Initialization
         window.onload = () => {
             renderChapter1();
             renderChapter2();
             renderChapter4();
             
-            // Intersection Observer for fade-ins
             const observer = new IntersectionObserver((entries) => {
                 entries.forEach(entry => {
                     if (entry.isIntersecting) {
@@ -826,7 +802,7 @@ function updateCartUI() {
             }, { threshold: 0.1 });
 
             document.querySelectorAll('.fade-in').forEach(el => {
-                el.style.opacity = 0; // initially hide
+                el.style.opacity = 0;
                 observer.observe(el);
             });
         };
