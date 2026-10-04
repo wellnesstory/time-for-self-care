@@ -174,21 +174,23 @@
     <!-- Chapter 1: 情緒香水 -->
     <section id="chapter1" class="py-16 bg-white">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <!-- Promo Banner -->
+            <div class="max-w-3xl mx-auto bg-brand-light/50 border border-brand-accent/30 rounded-2xl p-5 mb-10 text-center shadow-sm space-y-2">
+                <span class="inline-block bg-brand-accent text-white text-xs px-2 py-1 rounded mb-1">香水套裝優惠</span>
+                <p class="text-brand-dark text-sm md:text-base">
+                    5ml 套裝：任選 3 枝 <strong class="text-brand-dark font-bold">$168</strong> <span class="text-gray-500 text-xs">(原價$204)</span>
+                </p>
+                <p class="text-brand-dark text-sm md:text-base">
+                    10ml 套裝：任選 2 枝 <strong class="text-brand-dark font-bold">$238</strong><span class="text-gray-500 text-xs">(原價$256)</span> / 任選 3 枝 <strong class="text-brand-dark font-bold">$338</strong><span class="text-gray-500 text-xs">(原價$384)</span>
+                </p>
+            </div>
+
             <div class="text-center mb-12 fade-in">
                 <span class="text-brand-accent text-sm tracking-widest uppercase">Chapter 1</span>
                 <h2 class="font-serif text-3xl md:text-4xl text-brand-dark mt-2 mb-4">情緒香水</h2>
                 <p class="text-brand-text max-w-2xl mx-auto font-light leading-relaxed">
                     以不同情緒為主題的原創香水 <br>讓香氣陪伴你認識、擁抱與接納內心的每一種感受
-                </p>
-            </div>
-            <!-- Promo Banner -->
-            <div class="max-w-3xl mx-auto bg-brand-light/50 border border-brand-accent/30 rounded-2xl p-5 mb-10 text-center shadow-sm space-y-2">
-                <span class="inline-block bg-brand-accent text-white text-xs px-2 py-1 rounded mb-1">多重套裝優惠</span>
-                <p class="text-brand-dark text-sm md:text-base">
-                    🌿 **5ml 套裝**：任選 3 枝輸入優惠碼 <strong class="text-brand-accent font-bold tracking-wider">3FOR168</strong> 享優惠價 <strong class="text-brand-dark font-bold">$168</strong> <span class="text-gray-500 text-xs">(原價$204)</span>
-                </p>
-                <p class="text-brand-dark text-sm md:text-base">
-                    ✨ **10ml 套裝**：任選 2 枝 <strong class="text-brand-dark font-bold">$238</strong> / 任選 3 枝 <strong class="text-brand-dark font-bold">$338</strong> <span class="text-gray-500 text-xs">(系統會自動幫你計算折扣)</span>
                 </p>
             </div>
 
@@ -227,17 +229,6 @@
                 <h2 class="font-serif text-3xl md:text-4xl text-brand-dark mt-2 mb-4">生日月份香水</h2>
                 <p class="text-brand-text max-w-2xl mx-auto font-light leading-relaxed">
                     十二個月份，十二種靈魂氣息。<br>尋找與你心靈共鳴的專屬香調。
-                </p>
-            </div>
-
-            <!-- Promo Banner -->
-            <div class="max-w-3xl mx-auto bg-brand-light/50 border border-brand-accent/30 rounded-2xl p-5 mb-10 text-center shadow-sm space-y-2">
-                <span class="inline-block bg-brand-accent text-white text-xs px-2 py-1 rounded mb-1">多重套裝優惠</span>
-                <p class="text-brand-dark text-sm md:text-base">
-                    🌿 **5ml 套裝**：任選 3 枝輸入優惠碼 <strong class="text-brand-accent font-bold tracking-wider">3FOR168</strong> 享優惠價 <strong class="text-brand-dark font-bold">$168</strong> <span class="text-gray-500 text-xs">(原價$204)</span>
-                </p>
-                <p class="text-brand-dark text-sm md:text-base">
-                    ✨ **10ml 套裝**：任選 2 枝 <strong class="text-brand-dark font-bold">$238</strong> / 任選 3 枝 <strong class="text-brand-dark font-bold">$338</strong> <span class="text-gray-500 text-xs">(系統會自動幫你計算折扣)</span>
                 </p>
             </div>
 
@@ -333,11 +324,6 @@
 
             <!-- Cart Footer -->
             <div class="p-6 border-t border-gray-100 bg-gray-50">
-                <div class="mb-4 flex space-x-2">
-                    <input type="text" id="promo-input" placeholder="輸入優惠碼 (如 5ml套裝輸入 3FOR168)" class="flex-1 bg-white border border-gray-200 text-sm rounded-lg p-2 focus:ring-brand-accent focus:border-brand-accent outline-none">
-                    <button onclick="applyPromo()" class="bg-brand-dark text-white px-4 py-2 rounded-lg text-sm hover:bg-brand-accent transition">套用</button>
-                </div>
-                
                 <div id="discount-row" class="hidden justify-between mb-2 text-green-600 text-sm">
                     <!-- Javascript 將填入折扣資訊 -->
                 </div>
@@ -400,7 +386,6 @@
         ];
 
         let cart = [];
-        let activePromo = '';    // 記錄 5ml 專用優惠碼 ('3FOR168')
         
         // UI Render Functions
         function renderChapter1() {
@@ -426,8 +411,8 @@
                             <div class="mt-auto">
                                 <div class="flex items-center space-x-2 mb-3">
                                     <select id="size-${item.id}" class="w-full bg-gray-50 border border-gray-200 text-gray-700 text-sm rounded-lg focus:ring-brand-accent focus:border-brand-accent block p-2">
-                                        <option value="5ml">5ml - $68</option>
-                                        <option value="10ml">10ml - $128 (多支裝優惠)</option>
+                                        <option value="5ml">5ml - $68 (任選3枝$168)</option>
+                                        <option value="10ml">10ml - $128 (2支$238 / 3支$338)</option>
                                         <option value="30ml">30ml - $228</option>
                                         <option value="50ml">50ml (網購限定) - $288</option>
                                     </select>
@@ -466,8 +451,8 @@
                             <div class="mt-auto">
                                 <div class="flex items-center space-x-2 mb-3">
                                     <select id="size-${item.id}" class="w-full bg-gray-50 border border-gray-200 text-gray-700 text-sm rounded-lg block p-2">
-                                        <option value="5ml">5ml - $68</option>
-                                        <option value="10ml">10ml - $128 (多支裝優惠)</option>
+                                        <option value="5ml">5ml - $68 (任選3枝$168)</option>
+                                        <option value="10ml">10ml - $128 (2支$238 / 3支$338)</option>
                                         <option value="30ml">30ml (網購限定) - $228</option>
                                         <option value="50ml">50ml (網購限定) - $288</option>
                                     </select>
@@ -608,7 +593,14 @@
             
             container.innerHTML = html;
 
+            // 計算 5ml 自動優惠 (每3支 $168，省36)
+            let discount5ml = 0;
+            let sets3_5ml = Math.floor(count5ml / 3);
+            discount5ml += sets3_5ml * 36;
+            total -= discount5ml;
+
             // 計算 10ml 自動組合優惠
+            // 規則：3支 $338 (省46)，2支 $238 (省18)
             let discount10ml = 0;
             let sets3_10ml = Math.floor(count10ml / 3);
             let rem10ml = count10ml % 3;
@@ -616,30 +608,19 @@
 
             discount10ml += sets3_10ml * 46;
             discount10ml += sets2_10ml * 18;
-
             total -= discount10ml;
 
-            // 計算 5ml 優惠 (3FOR168)
-            let discount5ml = 0;
             const discountRow = document.getElementById('discount-row');
-            
             let discountTextHTML = '';
             let hasDiscount = false;
 
-            if (activePromo === '3FOR168' && count5ml >= 3) {
-                const setsOfThree5ml = Math.floor(count5ml / 3);
-                discount5ml = setsOfThree5ml * 36; 
-                total -= discount5ml;
+            if (discount5ml > 0) {
                 hasDiscount = true;
-                discountTextHTML += `<div>5ml 套裝優惠 (-HK$ ${discount5ml})</div>`;
-            } else if (activePromo === '3FOR168' && count5ml < 3 && count5ml > 0) {
-                hasDiscount = true;
-                discountTextHTML += `<div class="text-xs text-amber-600">【提示】5ml 需選購滿3枝才可享 3FOR168 優惠</div>`;
+                discountTextHTML += `<div>5ml 套裝自動優惠 (-HK$ ${discount5ml})</div>`;
             }
-
             if (discount10ml > 0) {
                 hasDiscount = true;
-                discountTextHTML += `<div>10ml 多支裝自動優惠 (-HK$ ${discount10ml})</div>`;
+                discountTextHTML += `<div>10ml 套裝自動優惠 (-HK$ ${discount10ml})</div>`;
             }
 
             if (hasDiscount) {
@@ -684,16 +665,16 @@
             let count5ml = cart.filter(i => i.type==='perfume' && i.variant==='5ml').reduce((s, i) => s + i.qty, 0);
             let count10ml = cart.filter(i => i.type==='perfume' && i.variant==='10ml').reduce((s, i) => s + i.qty, 0);
 
+            let discount5ml = Math.floor(count5ml / 3) * 36;
             let discount10ml = Math.floor(count10ml / 3) * 46 + Math.floor((count10ml % 3) / 2) * 18;
-            let discount5ml = (activePromo === '3FOR168' && count5ml >= 3) ? Math.floor(count5ml / 3) * 36 : 0;
 
-            if (discount10ml > 0) {
-                msg += `10ml 多支裝自動折扣：-HK$ ${discount10ml}\n`;
-                total -= discount10ml;
-            }
             if (discount5ml > 0) {
-                msg += `5ml 套裝優惠碼 (${activePromo}) 折扣：-HK$ ${discount5ml}\n`;
+                msg += `5ml 套裝自動折扣：-HK$ ${discount5ml}\n`;
                 total -= discount5ml;
+            }
+            if (discount10ml > 0) {
+                msg += `10ml 套裝自動折扣：-HK$ ${discount10ml}\n`;
+                total -= discount10ml;
             }
             
             msg += `小計（折後）：HK$ ${total}\n`;
@@ -710,23 +691,6 @@
             const whatsappUrl = `https://wa.me/85264630300?text=${encodedMsg}`;
             
             window.open(whatsappUrl, '_blank');
-        }
-        
-        function applyPromo() {
-            const input = document.getElementById('promo-input').value.trim().toUpperCase();
-            if (input === '3FOR168') {
-                activePromo = input;
-                updateCartUI();
-                showToast('5ml 套裝優惠碼已成功套用！');
-            } else if (input === '') {
-                activePromo = '';
-                updateCartUI();
-            } else {
-                alert('優惠碼無效或已過期 (10ml 套裝優惠為系統自動計算，無需輸入優惠碼)');
-                activePromo = '';
-                document.getElementById('promo-input').value = '';
-                updateCartUI();
-            }
         }
 
         // Initialization
