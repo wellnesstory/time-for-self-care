@@ -360,16 +360,17 @@
 
         // Data Definitions
         const chapter1Data = [
-            { id: 'c1_1', name: 'Unique 獨特', desc: '勇敢走過所有情緒，成就這獨特的平靜', top: '粉紅胡椒、伯爵茶、山葡萄', mid: '煙草、白麝香、金銀花、山艾草', base: '琥珀、韓國雪松', img: 'https://i.postimg.cc/pXJdHtkj/Unique.png' },
-            { id: 'c1_2', name: 'Freedom 自由', desc: '自由不是用力壓抑，而是學會與它共存', top: '佛手柑、天竺葵、茉莉', mid: '海洋、白木', base: '檜木、檀木', img: 'https://i.postimg.cc/RVL0BzG5/Freedom.png' },
-            { id: 'c1_3', name: 'Gloomy 憂鬱', desc: '憂鬱或許不討喜，但請允許自己偶爾不開心', top: '青檸、香草、快樂鼠尾草', mid: '五月玖瑰、梔子、晚香玉、鈴蘭、苔蘚', base: '琥珀、麝香、薰衣草', img: 'https://i.postimg.cc/rFNpkLgy/Gloomy.png' },
-            { id: 'c1_4', name: 'Joy 快樂', desc: '世界或許複雜，而快樂始終是一種選擇', top: '橙、荔枝、蘋果', mid: '覆盆子、菠蘿、薄荷', base: '香根草、含羞草、葡萄柚、桃', img: 'https://i.postimg.cc/sD42rRKB/Joy.png' },
-            { id: 'c1_5', name: 'Anxious 焦慮', desc: '焦慮是靈魂對事物最真切的重視', top: '黑胡椒、茉莉、綠色植物', mid: '乾草、野胡蘿蔔籽、香脂、海洋', base: '橡木、零陵香豆、乳香', img: 'https://i.postimg.cc/8PSC9Cd1/Anxious.png' },
-            { id: 'c1_6', name: 'MISS 懷念', desc: '懷念是為了讓遺失的自己，再次被拾起', top: '白風鈴草、黃葵', mid: '迷迭香、木蘭、橙花', base: '苦橙葉、癒創木、白麝香', img: 'https://i.postimg.cc/SNfKhpV2/Miss.png' },
-            { id: 'c1_7', name: 'Happiness 幸福', desc: '幸福一直都在，因愛從未離開', top: '草莓、柑橘、雲呢拿', mid: '桃、大馬士革玫瑰、茉莉、鬱金香', base: '麝香、白琥珀', img: 'https://i.postimg.cc/PrQqjkKm/Happiness.png' },
-            { id: 'c1_8', name: 'Courage 勇氣', desc: '勇氣始於面對恐懼的那一刻', top: '佛手柑、薄荷、白麝香', mid: '硯石、快樂鼠尾草、白葡萄酒', base: '韓國雪松、白木、琥珀', img: 'https://i.postimg.cc/vHtmsdXG/Courage.png' }
-            { id: 'c1_9', name: 'Loving 愛', desc: '愛是甜美得讓人甘願沉醉。', top: '橙、白葡萄酒、香料', mid: '白桂花、橙花、香脂', base: '檀木、雲呢嗱、橡木', img: 'https://i.postimg.cc/2Szv23L4/Gemini-Generated-Image-cq0itycq0itycq0i.jpg' }
-            { id: 'c1_10', name: 'Tired 疲累', desc: '疲累是歷經微苦後，渴望被洗淨的瞬間', top: '寺香、韓國紙香', mid: '韓草藥、韓國雪松、醛', base: '白琥珀、琥珀', img: 'https://i.postimg.cc/2Szv23L4/Gemini-Generated-Image-cq0itycq0itycq0i.jpg' }
+            const chapter1Data = [
+    { id: 'c1_1', name: 'Unique 獨特', desc: '勇敢走過所有情緒，成就這獨特的平靜', top: '粉紅胡椒、伯爵茶、山葡萄', mid: '煙草、白麝香、金銀花、山艾草', base: '琥珀、韓國雪松', img: 'https://i.postimg.cc/pXJdHtkj/Unique.png' },
+    { id: 'c1_2', name: 'Freedom 自由', desc: '自由不是用力壓抑，而是學會與它共存', top: '佛手柑、天竺葵、茉莉', mid: '海洋、白木', base: '檜木、檀木', img: 'https://i.postimg.cc/RVL0BzG5/Freedom.png' },
+    { id: 'c1_3', name: 'Gloomy 憂鬱', desc: '憂鬱或許不討喜，但請允許自己偶爾不開心', top: '青檸、香草、快樂鼠尾草', mid: '五月玖瑰、梔子、晚香玉、鈴蘭、苔蘚', base: '琥珀、麝香、薰衣草', img: 'https://i.postimg.cc/rFNpkLgy/Gloomy.png' },
+    { id: 'c1_4', name: 'Joy 快樂', desc: '世界或許複雜，而快樂始終是一種選擇', top: '橙、荔枝、蘋果', mid: '覆盆子、菠蘿、薄荷', base: '香根草、含羞草、葡萄柚、桃', img: 'https://i.postimg.cc/sD42rRKB/Joy.png' },
+    { id: 'c1_5', name: 'Anxious 焦慮', desc: '焦慮是靈魂對事物最真切的重視', top: '黑胡椒、茉莉、綠色植物', mid: '乾草、野胡蘿蔔籽、香脂、海洋', base: '橡木、零陵香豆、乳香', img: 'https://i.postimg.cc/8PSC9Cd1/Anxious.png' },
+    { id: 'c1_6', name: 'MISS 懷念', desc: '懷念是為了讓遺失的自己，再次被拾起', top: '白風鈴草、黃葵', mid: '迷迭香、木蘭、橙花', base: '苦橙葉、癒創木、白麝香', img: 'https://i.postimg.cc/SNfKhpV2/Miss.png' },
+    { id: 'c1_7', name: 'Happiness 幸福', desc: '幸福一直都在，因愛從未離開', top: '草莓、柑橘、雲呢拿', mid: '桃、大馬士革玫瑰、茉莉、鬱金香', base: '麝香、白琥珀', img: 'https://i.postimg.cc/PrQqjkKm/Happiness.png' },
+    { id: 'c1_8', name: 'Courage 勇氣', desc: '勇氣始於面對恐懼的那一刻', top: '佛手柑、薄荷、白麝香', mid: '硯石、快樂鼠尾草、白葡萄酒', base: '韓國雪松、白木、琥珀', img: 'https://i.postimg.cc/vHtmsdXG/Courage.png' },
+    { id: 'c1_9', name: 'Loving 愛', desc: '愛是甜美得讓人甘願沉醉。', top: '橙、白葡萄酒、香料', mid: '白桂花、橙花、香脂', base: '檀木、雲呢嗱、橡木', img: 'https://i.postimg.cc/2Szv23L4/Gemini-Generated-Image-cq0itycq0itycq0i.jpg' },
+    { id: 'c1_10', name: 'Tired 疲累', desc: '疲累是歷經微苦後，渴望被洗淨的瞬間', top: '寺香、韓國紙香', mid: '韓草藥、韓國雪松、醛', base: '白琥珀、琥珀', img: 'https://i.postimg.cc/2Szv23L4/Gemini-Generated-Image-cq0itycq0itycq0i.jpg' }
         ];
 
         const chapter4Data = [
